@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,9 +43,9 @@
       --shadow-lg:     0 14px 40px rgba(26,24,21,.11);
       --shadow-xl:     0 28px 64px rgba(26,24,21,.13);
 
-      --ff-serif:  'Cormorant Garamond', Georgia, serif;
-      --ff-sans:   'DM Sans', system-ui, sans-serif;
-      --ff-mono:   'DM Mono', 'Fira Code', monospace;
+      --ff-serif:  'Songti SC', 'Noto Serif SC', 'STSong', Georgia, serif;
+      --ff-sans:   'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif;
+      --ff-mono:   'SFMono-Regular', 'DM Mono', 'Menlo', 'Consolas', monospace;
 
       --radius-xs: 4px;
       --radius-sm: 6px;
@@ -589,7 +589,7 @@
     .arch-row.l3 { border-left: 3px solid var(--violet); }
 
     /* =========================================
-       OUTPUT FORMATS
+       输出格式
     ========================================= */
     .out-grid {
       display: grid; grid-template-columns: repeat(5,1fr); gap: 14px;
@@ -921,7 +921,7 @@
     .sep hr { border: none; border-top: 1px solid var(--border); }
 
     /* =========================================
-       SCROLL REVEAL
+       下滑浏览 REVEAL
     ========================================= */
     .rv {
       opacity: 0; transform: translateY(28px);
@@ -947,14 +947,14 @@
     <span><span class="gold">One</span>ResearchClaw</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#pipeline">Pipeline</a></li>
-    <li><a href="#formats">Formats</a></li>
-    <li><a href="#arch">Architecture</a></li>
-    <li><a href="#showcase">Showcase</a></li>
-    <li><a href="#qs">Quick Start</a></li>
+    <li><a href="#pipeline">流程总览</a></li>
+    <li><a href="#formats">格式</a></li>
+    <li><a href="#arch">架构设计</a></li>
+    <li><a href="#showcase">案例展示</a></li>
+    <li><a href="#qs">快速开始</a></li>
   </ul>
   <div class="nav-actions">
-    <a href="./index_zh.html" class="lang-switch">中文</a>
+    <a href="./index.html" class="lang-switch">EN</a>
   </div>
 </nav>
 
@@ -970,39 +970,39 @@
 
   <div class="hero-badge">
     <div class="badge-line"></div>
-    AI Research Pipeline &nbsp;·&nbsp; Cursor Agent Skills
+    AI 研究流程 &nbsp;·&nbsp; Cursor Agent Skills
     <div class="badge-line"></div>
   </div>
 
   <div class="hero-product"><span>🦞</span>&nbsp; OneResearchClaw</div>
 
   <h1 class="hero-title">
-    <span class="t-dim">Any</span> <span class="t-ink">Research.</span><br>
-    <span class="t-gold">One</span> <span class="t-ink">Claw.</span>
+    <span class="t-dim">任何</span> <span class="t-ink">研究。</span><br>
+    <span class="t-gold">一爪</span> <span class="t-ink">搞定。</span>
   </h1>
 
-  <p class="hero-sub">Multi-Format Input &rarr; Structured Research Report Generation Pipeline</p>
+  <p class="hero-sub">多模态输入 &rarr; 结构化研究报告生成流程</p>
 
   <p class="hero-desc">
-    From meeting audio/video, documents, tables, and presentations to arXiv, YouTube, and Bilibili links — <br>
-    automatically structured, researched, reviewed, and exported.
+    从会议音视频、文档、表格、演示文稿，到 arXiv、YouTube、Bilibili 链接 —— <br>
+    自动完成结构化整理、调研、审阅与导出。
   </p>
 
   <div class="hero-btns">
-    <a href="#qs"        class="btn btn-gold">Get Started</a>
-    <a href="#pipeline"   class="btn btn-outline">View Pipeline</a>
+    <a href="#qs"        class="btn btn-gold">开始使用</a>
+    <a href="#pipeline"   class="btn btn-outline">查看流程</a>
   </div>
 
   <div class="hero-stats">
-    <div class="hs"><span class="hs-n" data-target="6">0</span><div class="hs-l">Input Types</div></div>
-    <div class="hs"><span class="hs-n" data-target="16">0</span><div class="hs-l">Agent Skills</div></div>
-    <div class="hs"><span class="hs-n" data-target="3">0</span><div class="hs-l">Depth Modes</div></div>
-    <div class="hs"><span class="hs-n" data-target="5">0</span><div class="hs-l">Export Formats</div></div>
+    <div class="hs"><span class="hs-n" data-target="6">0</span><div class="hs-l">输入类型</div></div>
+    <div class="hs"><span class="hs-n" data-target="16">0</span><div class="hs-l">Skills 数量</div></div>
+    <div class="hs"><span class="hs-n" data-target="3">0</span><div class="hs-l">调研深度模式</div></div>
+    <div class="hs"><span class="hs-n" data-target="5">0</span><div class="hs-l">导出格式</div></div>
   </div>
 
   <div class="scroll-hint">
     <div class="scroll-dash"></div>
-    SCROLL
+    下滑浏览
   </div>
 </div>
 
@@ -1011,30 +1011,30 @@
 ══════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow">Core Features</p>
-    <h2>Built for <span class="dim">real research</span> workflows</h2>
-    <p class="lead">From multi-source input to quality review, every step is designed for real-world research needs.</p>
+    <p class="eyebrow">核心能力</p>
+    <h2>为<span class="dim">真实科研</span>流程而生</h2>
+    <p class="lead">从多源输入到质量审阅，每一步都围绕真实研究工作流设计。</p>
 
     <div class="feat-grid">
       <div class="feat-card rv">
         <span class="feat-icon">🧠</span>
-        <div class="feat-name">Multi-Topic Splitting</div>
-        <div class="feat-desc">Long meetings are automatically analyzed for independent topics. Each topic generates its own research report with clear boundaries.</div>
+        <div class="feat-name">多主题拆分</div>
+        <div class="feat-desc">长会议会被自动识别为多个独立主题，每个主题单独生成研究报告，边界清晰。</div>
       </div>
       <div class="feat-card rv d1">
         <span class="feat-icon">🎚️</span>
-        <div class="feat-name">Controllable Depth</div>
-        <div class="feat-desc">Choose from simple / medium / complex modes to control literature scope, source opening, and research cost.</div>
+        <div class="feat-name">深度可控</div>
+        <div class="feat-desc">支持 simple / medium / complex 三档模式，控制文献覆盖范围、打开来源数量与研究成本。</div>
       </div>
       <div class="feat-card rv d2">
         <span class="feat-icon">🔎</span>
-        <div class="feat-name">Directed Research</div>
-        <div class="feat-desc">Candidate queries are generated before retrieval. Confirm, add, or refine them before search begins to reduce waste.</div>
+        <div class="feat-name">定向调研</div>
+        <div class="feat-desc">检索前先生成候选查询词，可先确认、补充或修改，再启动搜索，减少无效检索。</div>
       </div>
       <div class="feat-card rv d3">
         <span class="feat-icon">🧪</span>
-        <div class="feat-name">Multi-Model Review</div>
-        <div class="feat-desc">Review → Rewrite loops with multi-dimensional quality diagnosis and bounded revision until the quality gate is passed.</div>
+        <div class="feat-name">多模型审阅</div>
+        <div class="feat-desc">通过 Review → Rewrite 循环做多维质量诊断与有限次修订，直到通过质量门槛。</div>
       </div>
     </div>
   </div>
@@ -1047,14 +1047,14 @@
 ══════════════════════════════════════════ -->
 <section id="pipeline">
   <div class="wrap">
-    <p class="eyebrow">Pipeline</p>
-    <h2>End-to-end <span class="dim">automated</span> pipeline</h2>
-    <p class="lead">From raw input to deliverable research report — fully automated with no manual handoffs.</p>
+    <p class="eyebrow">流程总览</p>
+    <h2>端到端<span class="dim">自动化</span>流程</h2>
+    <p class="lead">从原始输入到可交付研究报告，全流程自动化，无需人工接力。</p>
 
     <div class="pipeline-card rv">
       <div class="pipe-bar">
         <div class="pipe-live"></div>
-        <span class="pipe-bar-title">one-report &nbsp;&middot;&nbsp; Full-pipeline automation entry point</span>
+        <span class="pipe-bar-title">one-report &nbsp;&middot;&nbsp; 全流程自动化入口</span>
       </div>
 
       <div class="flow-track">
@@ -1065,44 +1065,44 @@
 
       <div class="pipe-stages">
         <div class="ps">
-          <div class="ps-num">STAGE &middot; 0</div>
+          <div class="ps-num">阶段 &middot; 0</div>
           <span class="ps-icon">🔀</span>
-          <div class="ps-name">Smart Routing</div>
-          <div class="ps-sub">Identify input type<br>Dispatch to pipeline</div>
+          <div class="ps-name">智能路由</div>
+          <div class="ps-sub">识别输入类型<br>分发到对应流程</div>
         </div>
         <div class="ps-arrow">&rsaquo;</div>
         <div class="ps">
-          <div class="ps-num">STAGE &middot; 1</div>
+          <div class="ps-num">阶段 &middot; 1</div>
           <span class="ps-icon">🏗️</span>
-          <div class="ps-name">Grounding</div>
-          <div class="ps-sub">Extract key content<br>Generate structured notes</div>
+          <div class="ps-name">Grounding 结构化</div>
+          <div class="ps-sub">提取关键信息<br>生成结构化笔记</div>
         </div>
         <div class="ps-arrow">&rsaquo;</div>
         <div class="ps">
-          <div class="ps-num">STAGE &middot; 2</div>
+          <div class="ps-num">阶段 &middot; 2</div>
           <span class="ps-icon">🔍</span>
-          <div class="ps-name">Literature Research</div>
-          <div class="ps-sub">Directed retrieval of<br>relevant literature &amp; sources</div>
+          <div class="ps-name">文献调研</div>
+          <div class="ps-sub">定向检索<br>相关文献与资料来源</div>
         </div>
         <div class="ps-arrow">&rsaquo;</div>
         <div class="ps">
-          <div class="ps-num">STAGE &middot; 3</div>
+          <div class="ps-num">阶段 &middot; 3</div>
           <span class="ps-icon">🧠</span>
-          <div class="ps-name">Synthesis</div>
-          <div class="ps-sub">Technical memo integration<br>&amp; report review</div>
+          <div class="ps-name">综合生成</div>
+          <div class="ps-sub">技术备忘整合<br>&amp; 报告审阅</div>
         </div>
         <div class="ps-arrow">&rsaquo;</div>
         <div class="ps">
-          <div class="ps-num">STAGE &middot; 4</div>
+          <div class="ps-num">阶段 &middot; 4</div>
           <span class="ps-icon">📤</span>
-          <div class="ps-name">Export</div>
-          <div class="ps-sub">md / pdf / docx<br>pptx / audio</div>
+          <div class="ps-name">导出</div>
+          <div class="ps-sub">md / pdf / docx<br>pptx / 音频</div>
         </div>
       </div>
 
       <div class="pipe-io">
         <div>
-          <div class="pipe-io-head">INPUT FORMATS</div>
+          <div class="pipe-io-head">输入格式</div>
           <div class="tags">
             <span class="tag tg-gold">.mp3 .wav .m4a</span>
             <span class="tag tg-gold">.mp4 .mov .mkv</span>
@@ -1119,7 +1119,7 @@
           <div class="io-line"></div>
         </div>
         <div>
-          <div class="pipe-io-head">OUTPUT FORMATS</div>
+          <div class="pipe-io-head">输出格式</div>
           <div class="tags">
             <span class="tag tg-gold">.md</span>
             <span class="tag tg-teal">.pdf</span>
@@ -1140,15 +1140,15 @@
 ══════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow">Research Depth</p>
-    <h2>Choose your <span class="dim">research depth</span></h2>
-    <p class="lead">Match the research mode to your task — balance coverage, cost, and report depth.</p>
+    <p class="eyebrow">调研深度</p>
+    <h2>选择你的<span class="dim">调研深度</span></h2>
+    <p class="lead">让研究模式匹配任务需求，在覆盖度、成本与报告深度之间取得平衡。</p>
 
     <div class="depth-grid">
       <div class="depth-card rv">
-        <div class="depth-mode dm-s">MODE &middot; simple</div>
-        <div class="depth-name">Quick Overview</div>
-        <div class="depth-desc">Rapidly understand background and supplement core related work. Ideal for lightweight briefings or initial exploration.</div>
+        <div class="depth-mode dm-s">模式 &middot; simple</div>
+        <div class="depth-name">快速概览</div>
+        <div class="depth-desc">快速了解背景并补充核心相关工作，适合轻量汇报或前期探索。</div>
         <div class="depth-meta">
           <span class="dm-tag">3&ndash;5 papers</span>
           <span class="dm-tag">&ge;3 opened</span>
@@ -1156,9 +1156,9 @@
         </div>
       </div>
       <div class="depth-card rv d1">
-        <div class="depth-mode dm-m">MODE &middot; medium</div>
-        <div class="depth-name">Balanced Research</div>
-        <div class="depth-desc">Balances coverage, cost, and report depth. Recommended as the default research mode for most tasks.</div>
+        <div class="depth-mode dm-m">模式 &middot; medium</div>
+        <div class="depth-name">均衡研究</div>
+        <div class="depth-desc">兼顾覆盖度、成本和报告深度，适合作为多数任务的默认研究模式。</div>
         <div class="depth-meta">
           <span class="dm-tag">6&ndash;10 papers</span>
           <span class="dm-tag">&ge;6 opened</span>
@@ -1166,9 +1166,9 @@
         </div>
       </div>
       <div class="depth-card rv d2">
-        <div class="depth-mode dm-c">MODE &middot; complex</div>
-        <div class="depth-name">Deep Research</div>
-        <div class="depth-desc">For cross-domain, complex problems, or tasks requiring systematic literature mapping. Produces in-depth research reports.</div>
+        <div class="depth-mode dm-c">模式 &middot; complex</div>
+        <div class="depth-name">深度研究</div>
+        <div class="depth-desc">适用于跨领域、复杂问题或需要系统性文献梳理的任务，产出更深入的研究报告。</div>
         <div class="depth-meta">
           <span class="dm-tag">10&ndash;15 papers</span>
           <span class="dm-tag">&ge;10 opened</span>
@@ -1182,21 +1182,21 @@
 <div class="sep"><hr></div>
 
 <!-- ══════════════════════════════════════════
-     INPUT FORMATS
+     输入格式
 ══════════════════════════════════════════ -->
 <section id="formats">
   <div class="wrap">
-    <p class="eyebrow">Input Support</p>
-    <h2>Supported <span class="dim">input formats</span></h2>
-    <p class="lead">Audio, video, documents, spreadsheets, slides, archives, and online links — automatically identified and routed to the appropriate pipeline.</p>
+    <p class="eyebrow">输入支持</p>
+    <h2>支持的<span class="dim">输入格式</span></h2>
+    <p class="lead">音频、视频、文档、表格、演示、压缩包与在线链接均可自动识别，并路由到合适的处理流程。</p>
 
     <div class="fmt-grid">
       <div class="fmt-card rv">
         <div class="fmt-top">
           <span class="fmt-icon">🎙️</span>
           <div>
-            <div class="fmt-name">Meeting Audio</div>
-            <div class="fmt-out">&rarr; Structured meeting notes</div>
+            <div class="fmt-name">会议音频</div>
+            <div class="fmt-out">&rarr; 结构化会议笔记</div>
           </div>
         </div>
         <div class="fmt-exts">
@@ -1204,15 +1204,15 @@
           <span class="tag tg-gold">.wav</span>
           <span class="tag tg-gold">.m4a</span>
         </div>
-        <div class="fmt-desc">WhisperX speech recognition with speaker diarization, auto-generating structured 7-segment notes with speaker attribution.</div>
+        <div class="fmt-desc">使用 WhisperX 进行语音识别和说话人分离，自动生成带说话人归属的 7 段式结构化笔记。</div>
       </div>
 
       <div class="fmt-card rv d1">
         <div class="fmt-top">
           <span class="fmt-icon">🎬</span>
           <div>
-            <div class="fmt-name">Meeting Video</div>
-            <div class="fmt-out">&rarr; Structured meeting notes</div>
+            <div class="fmt-name">会议视频</div>
+            <div class="fmt-out">&rarr; 结构化会议笔记</div>
           </div>
         </div>
         <div class="fmt-exts">
@@ -1220,15 +1220,15 @@
           <span class="tag tg-gold">.mov</span>
           <span class="tag tg-gold">.mkv</span>
         </div>
-        <div class="fmt-desc">ffmpeg extracts the audio stream and pipes it to the meeting-audio-grounding pipeline for full structured meeting notes.</div>
+        <div class="fmt-desc">使用 ffmpeg 提取音频流，再接入 meeting-audio-grounding 流程，生成完整结构化会议笔记。</div>
       </div>
 
       <div class="fmt-card rv d2">
         <div class="fmt-top">
           <span class="fmt-icon">📄</span>
           <div>
-            <div class="fmt-name">Documents</div>
-            <div class="fmt-out">&rarr; Structured research notes</div>
+            <div class="fmt-name">文档材料</div>
+            <div class="fmt-out">&rarr; 结构化研究笔记</div>
           </div>
         </div>
         <div class="fmt-exts">
@@ -1237,50 +1237,50 @@
           <span class="tag tg-teal">.md</span>
           <span class="tag tg-teal">.txt</span>
         </div>
-        <div class="fmt-desc">Docling deeply extracts text, tables, figures, equations, and code blocks, producing an 8-segment structured note.</div>
+        <div class="fmt-desc">Docling 深度提取文本、表格、图像、公式与代码块，生成 8 段式结构化笔记。</div>
       </div>
 
       <div class="fmt-card rv">
         <div class="fmt-top">
           <span class="fmt-icon">📊</span>
           <div>
-            <div class="fmt-name">Spreadsheet Data</div>
-            <div class="fmt-out">&rarr; Data analysis notes</div>
+            <div class="fmt-name">表格数据</div>
+            <div class="fmt-out">&rarr; 数据分析笔记</div>
           </div>
         </div>
         <div class="fmt-exts">
           <span class="tag tg-teal">.xlsx</span>
           <span class="tag tg-teal">.csv</span>
         </div>
-        <div class="fmt-desc">Extracts schema, statistical summaries, preview rows, and auto-generates visualizations. Identifies outliers and data quality issues.</div>
+        <div class="fmt-desc">提取字段结构、统计摘要、预览行，并自动生成可视化，识别异常值与数据质量问题。</div>
       </div>
 
       <div class="fmt-card rv d1">
         <div class="fmt-top">
           <span class="fmt-icon">📑</span>
           <div>
-            <div class="fmt-name">Presentations</div>
-            <div class="fmt-out">&rarr; Presentation structure notes</div>
+            <div class="fmt-name">演示文稿</div>
+            <div class="fmt-out">&rarr; 演示结构笔记</div>
           </div>
         </div>
         <div class="fmt-exts">
           <span class="tag tg-violet">.pptx</span>
         </div>
-        <div class="fmt-desc">Extracts slide structure, titles, text, figures, tables, and speaker notes. Analyzes narrative flow and key signals.</div>
+        <div class="fmt-desc">提取页面结构、标题、正文、图表、表格与备注，分析叙事脉络和关键信号。</div>
       </div>
 
       <div class="fmt-card rv d2">
         <div class="fmt-top">
           <span class="fmt-icon">📦</span>
           <div>
-            <div class="fmt-name">Archives</div>
-            <div class="fmt-out">&rarr; Archive-level summary notes</div>
+            <div class="fmt-name">压缩归档</div>
+            <div class="fmt-out">&rarr; 档案级汇总笔记</div>
           </div>
         </div>
         <div class="fmt-exts">
           <span class="tag tg-muted">.zip</span>
         </div>
-        <div class="fmt-desc">Unpacks and identifies each subfile type, parallel-calls corresponding grounding skills, and generates a cross-file summary note.</div>
+        <div class="fmt-desc">解压并识别各子文件类型，并行调用相应 grounding skill，最后生成跨文件汇总笔记。</div>
       </div>
     </div>
   </div>
@@ -1293,30 +1293,30 @@
 ══════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow">Cloud Ingestion</p>
-    <h2>One-click <span class="dim">cloud link</span> ingestion</h2>
-    <p class="lead">arXiv papers, YouTube and Bilibili videos — paste a link and the system automatically downloads and enters the research pipeline.</p>
+    <p class="eyebrow">云端接入</p>
+    <h2>一键接入<span class="dim">云端链接</span></h2>
+    <p class="lead">支持 arXiv 论文、YouTube 和 Bilibili 视频，粘贴链接即可自动下载并进入研究流程。</p>
 
     <div class="link-grid">
       <div class="link-card rv">
         <span class="link-icon">📄</span>
         <div>
           <div class="link-name">arXiv</div>
-          <div class="link-desc">arxiv.org/abs/... / pdf &rarr; downloaded as PDF</div>
+          <div class="link-desc">arxiv.org/abs/... / pdf &rarr; 自动下载为 PDF</div>
         </div>
       </div>
       <div class="link-card rv d1">
         <span class="link-icon">🎬</span>
         <div>
           <div class="link-name">YouTube</div>
-          <div class="link-desc">youtube.com/watch, youtu.be &rarr; downloaded as video</div>
+          <div class="link-desc">youtube.com/watch, youtu.be &rarr; 自动下载为视频</div>
         </div>
       </div>
       <div class="link-card rv d2">
         <span class="link-icon">🎬</span>
         <div>
           <div class="link-name">Bilibili</div>
-          <div class="link-desc">BV... / av... / b23.tv &rarr; downloaded as video</div>
+          <div class="link-desc">BV... / av... / b23.tv &rarr; 自动下载为视频</div>
         </div>
       </div>
     </div>
@@ -1330,16 +1330,16 @@
 ══════════════════════════════════════════ -->
 <section id="arch">
   <div class="wrap">
-    <p class="eyebrow">Architecture</p>
-    <h2>Three-layer <span class="dim">decoupled</span> architecture</h2>
-    <p class="lead">Grounding &rarr; Middle &rarr; Output. Each layer is driven by independent Cursor Agent Skills — clear responsibilities, easy to extend.</p>
+    <p class="eyebrow">架构设计</p>
+    <h2>三层<span class="dim">解耦</span>架构</h2>
+    <p class="lead">Grounding &rarr; Middle &rarr; Output。每一层都由独立的 Cursor Agent Skills 驱动，职责清晰，扩展方便。</p>
 
     <div class="arch-wrap rv">
       <div class="arch-row l1">
         <div class="arch-meta">
-          <div class="arch-badge ab-gold">LAYER &middot; 1</div>
-          <div class="arch-title">Grounding Layer</div>
-          <div class="arch-sub">Input file &rarr; structured grounded.md<br>Multi-format parallel processing</div>
+          <div class="arch-badge ab-gold">第 1 层</div>
+          <div class="arch-title">Grounding 结构化 层</div>
+          <div class="arch-sub">输入文件 &rarr; 结构化 grounded.md<br>支持多格式并行处理</div>
         </div>
         <div class="arch-skills">
           <div class="skill-chip"><span class="skill-chip-icon">🔀</span><span class="skill-chip-name">input-router</span></div>
@@ -1357,9 +1357,9 @@
 
       <div class="arch-row l2">
         <div class="arch-meta">
-          <div class="arch-badge ab-teal">LAYER &middot; 2</div>
-          <div class="arch-title">Middle Layer</div>
-          <div class="arch-sub">grounded.md &rarr; research_report.md<br>Research &middot; Synthesis &middot; Review</div>
+          <div class="arch-badge ab-teal">第 2 层</div>
+          <div class="arch-title">中间层</div>
+          <div class="arch-sub">grounded.md &rarr; research_report.md<br>调研 &middot; 综合 &middot; 审阅</div>
         </div>
         <div class="arch-skills">
           <div class="skill-chip"><span class="skill-chip-icon">🔍</span><span class="skill-chip-name">grounded-research-lit</span></div>
@@ -1371,9 +1371,9 @@
 
       <div class="arch-row l3">
         <div class="arch-meta">
-          <div class="arch-badge ab-violet">LAYER &middot; 3</div>
-          <div class="arch-title">Output Layer</div>
-          <div class="arch-sub">research_report.md &rarr; Multi-format export<br>md / pdf / pptx / docx / audio</div>
+          <div class="arch-badge ab-violet">第 3 层</div>
+          <div class="arch-title">输出层</div>
+          <div class="arch-sub">research_report.md &rarr; 多格式导出<br>md / pdf / pptx / docx / audio</div>
         </div>
         <div class="arch-skills">
           <div class="skill-chip"><span class="skill-chip-icon">📤</span><span class="skill-chip-name">report-export</span></div>
@@ -1386,44 +1386,44 @@
 <div class="sep"><hr></div>
 
 <!-- ══════════════════════════════════════════
-     OUTPUT FORMATS
+     输出格式
 ══════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow">Export</p>
-    <h2>Multi-format <span class="dim">export</span> capability</h2>
-    <p class="lead">The final research report can be exported in five formats — one report for all delivery scenarios.</p>
+    <p class="eyebrow">导出</p>
+    <h2>多格式<span class="dim">导出</span>能力</h2>
+    <p class="lead">最终研究报告可导出为五种格式，一份报告覆盖多种交付场景。</p>
 
     <div class="out-grid">
       <div class="out-card rv" style="position:relative; overflow:hidden;">
         <span class="out-icon">📝</span>
         <div class="out-name">Markdown</div>
         <div class="out-ext" style="color:var(--gold);">.md</div>
-        <div class="out-desc">Plain text, best readability, ideal for version control</div>
+        <div class="out-desc">纯文本格式，可读性高，适合版本管理</div>
       </div>
       <div class="out-card rv d1" style="position:relative; overflow:hidden;">
         <span class="out-icon">📋</span>
-        <div class="out-name">Word</div>
+        <div class="out-name">Word 文档</div>
         <div class="out-ext" style="color:var(--teal);">.docx</div>
-        <div class="out-desc">DOCX format, full Word compatibility</div>
+        <div class="out-desc">DOCX 格式，与 Word 文档 完整兼容</div>
       </div>
       <div class="out-card rv d2" style="position:relative; overflow:hidden;">
         <span class="out-icon">📑</span>
         <div class="out-name">PDF</div>
         <div class="out-ext" style="color:var(--rose);">.pdf</div>
-        <div class="out-desc">Generated via DOCX path for precise formatting</div>
+        <div class="out-desc">通过 DOCX 路径生成，版式更稳定</div>
       </div>
       <div class="out-card rv d3" style="position:relative; overflow:hidden;">
         <span class="out-icon">🖼️</span>
         <div class="out-name">PowerPoint</div>
         <div class="out-ext" style="color:var(--violet);">.pptx</div>
-        <div class="out-desc">pptxgenjs auto-generates presentation decks</div>
+        <div class="out-desc">使用 pptxgenjs 自动生成演示文稿</div>
       </div>
       <div class="out-card rv d4" style="position:relative; overflow:hidden;">
         <span class="out-icon">🔊</span>
-        <div class="out-name">Audio</div>
+        <div class="out-name">音频</div>
         <div class="out-ext" style="color:var(--ink-3);">.wav</div>
-        <div class="out-desc">Kokoro TTS voice narration, Chinese supported</div>
+        <div class="out-desc">Kokoro TTS 语音播报，支持中文</div>
       </div>
     </div>
   </div>
@@ -1436,35 +1436,35 @@
 ══════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow">News</p>
-    <h2>Release <span class="dim">log</span></h2>
+    <p class="eyebrow">更新日志</p>
+    <h2>版本<span class="dim">日志</span></h2>
 
     <div class="news-list rv">
       <div class="news-item">
         <span class="news-date">2026/04/13</span>
-        <span class="news-text"><strong>Skill-Evolve officially released</strong>: OneResearchClaw now supports continuous skill-set evolution based on user feedback, saving personalized preferences as selectable derived versions.</span>
+        <span class="news-text"><strong>Skill-Evolve 正式发布</strong>：OneResearchClaw 现已支持基于用户反馈持续进化 skill 集，并将个性化偏好保存为可选派生版本。</span>
         <span class="news-tag">NEW</span>
       </div>
       <div class="news-item">
         <span class="news-date">2026/04/12</span>
-        <span class="news-text"><strong>One-click cloud link ingestion</strong>: arXiv papers, YouTube and Bilibili videos — paste a link and the system automatically downloads and starts the research workflow.</span>
+        <span class="news-text"><strong>一键云端链接接入</strong>：支持 arXiv、YouTube、Bilibili，粘贴链接即可自动下载并启动研究流程。</span>
         <span class="news-tag">NEW</span>
       </div>
       <div class="news-item">
         <span class="news-date">2026/04/11</span>
-        <span class="news-text"><strong>Multi-model review mechanism</strong>: The Review &rarr; Rewrite loop supports bounded iterative revision, significantly improving final deliverable quality.</span>
+        <span class="news-text"><strong>多模型审阅机制</strong>：Review &rarr; Rewrite 循环支持有限次迭代修订，显著提升最终交付质量。</span>
       </div>
       <div class="news-item">
         <span class="news-date">2026/04/09</span>
-        <span class="news-text"><strong>Controllable research depth</strong>: Choose from simple / medium / complex modes. Literature search scope, source opening, and research cost are easier to control.</span>
+        <span class="news-text"><strong>调研深度可控</strong>：支持 simple / medium / complex 模式，更容易控制文献搜索范围、来源打开数量与研究成本。</span>
       </div>
       <div class="news-item">
         <span class="news-date">2026/04/08</span>
-        <span class="news-text"><strong>Multi-topic parallel execution</strong>: The system automatically identifies multiple topics in meetings and generates independent reports, fully preserving every discussion thread.</span>
+        <span class="news-text"><strong>多主题并行执行</strong>：系统可自动识别会议中的多个议题，并分别生成独立报告，完整保留每条讨论线索。</span>
       </div>
       <div class="news-item">
         <span class="news-date">2026/04/05</span>
-        <span class="news-text"><strong>OneResearchClaw released</strong>: Multi-format input &rarr; automated research report generation. Everything is one command away, no manual handoffs required.</span>
+        <span class="news-text"><strong>OneResearchClaw 发布</strong>：支持多格式输入 &rarr; 自动化研究报告生成，一条命令即可完成，无需人工接力。</span>
       </div>
     </div>
   </div>
@@ -1477,30 +1477,30 @@
 ══════════════════════════════════════════ -->
 <section id="showcase">
   <div class="wrap">
-    <p class="eyebrow">Showcase</p>
-    <h2>Representative <span class="dim">case studies</span></h2>
-    <p class="lead">Five real-world cases from raw input to final deliverable report — multi-topic splitting, controllable depth, review loops, and bilingual export.</p>
+    <p class="eyebrow">案例展示</p>
+    <h2>代表性<span class="dim">案例</span></h2>
+    <p class="lead">五个真实案例，展示从原始输入到最终可交付报告的完整路径，包括多主题拆分、深度可控、审阅循环与双语导出。</p>
 
     <div class="showcase-intro rv">
       <div>
-        <h3>Generated Report Showcase</h3>
+        <h3>报告生成案例集</h3>
         <p>
-          Five representative cases across meetings, documents, mixed archives, links, and review workflows.
-          Every case traces the full pipeline — input → grounded note → literature research → synthesis → review → export.
+          五个代表性案例覆盖会议、文档、混合压缩包、链接输入与审阅工作流。
+          每个案例都展示完整路径：input → grounded note → literature research → synthesis → review → export。
         </p>
       </div>
       <div class="showcase-stats">
         <div class="ss-item">
           <span class="ss-n">5</span>
-          <div class="ss-l">Cases</div>
+          <div class="ss-l">案例数</div>
         </div>
         <div class="ss-item">
           <span class="ss-n">6+</span>
-          <div class="ss-l">Input Types</div>
+          <div class="ss-l">输入类型</div>
         </div>
         <div class="ss-item">
           <span class="ss-n">5</span>
-          <div class="ss-l">Export Formats</div>
+          <div class="ss-l">导出格式</div>
         </div>
       </div>
     </div>
@@ -1512,29 +1512,29 @@
         <div class="case-header">
           <span class="case-num">01</span>
           <div class="case-meta">
-            <div class="case-type ct-gold">Meeting Transcript</div>
-            <div class="case-title">Meeting Minutes &rarr; Multi-Topic Reports</div>
+            <div class="case-type ct-gold">会议转录</div>
+            <div class="case-title">会议纪要 &rarr; 多主题报告</div>
           </div>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            A research group meeting with two independent topics — Egocentric Video Understanding and Long-Video Reasoning Evaluation — automatically split into two separate reports with clear boundaries.
+            一个研究组会议包含两个独立主题——Egocentric Video Understanding 与 Long-Video Reasoning Evaluation——系统自动拆分为两份边界清晰的独立报告。
           </div>
           <div class="case-features">
-            <span class="cf-tag">Multi-topic splitting</span>
-            <span class="cf-tag">Meeting grounding</span>
-            <span class="cf-tag">2 independent reports</span>
-            <span class="cf-tag">EN + ZH bilingual</span>
+            <span class="cf-tag">多主题拆分</span>
+            <span class="cf-tag">会议 grounding</span>
+            <span class="cf-tag">2 份独立报告</span>
+            <span class="cf-tag">中英双语</span>
           </div>
           <div class="case-cta">
             <a href="./docs/showcase/SHOWCASE.md#case-1--meeting-input---multi-topic-reports" class="case-link primary">
-              &#128196; View Full Case
+              &#128196; 查看完整案例
             </a>
             <a href="./docs/showcase/reports/case1/meeting_meeting-case1_20260416004530_topic01/en/report.pdf" class="case-link">
-              &#128196; Topic01 EN PDF
+              &#128196; Topic01 英文 PDF
             </a>
             <a href="./docs/showcase/reports/case1/meeting_meeting-case1_20260416004530_topic01/zh/report.pdf" class="case-link">
-              &#128196; Topic01 ZH PDF
+              &#128196; Topic01 中文 PDF
             </a>
           </div>
         </div>
@@ -1545,28 +1545,28 @@
         <div class="case-header">
           <span class="case-num">02</span>
           <div class="case-meta">
-            <div class="case-type ct-teal">arXiv Link</div>
-            <div class="case-title">arXiv Link &rarr; Grounded Research Report</div>
+            <div class="case-type ct-teal">arXiv 链接</div>
+            <div class="case-title">arXiv 链接 &rarr; Grounded 研究报告</div>
           </div>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            A single arXiv paper ingested via URL — no manual download required. The system structures the paper, runs directed literature search, and generates a readable grounded report with bilingual output.
+            单篇 arXiv 论文通过 URL 直接接入，无需手动下载。系统会自动结构化论文、进行定向文献检索，并生成可读性较强的 grounded 报告，支持双语输出。
           </div>
           <div class="case-features">
-            <span class="cf-tag">arXiv URL ingestion</span>
-            <span class="cf-tag">Remote link grounding</span>
-            <span class="cf-tag">EN + ZH bilingual</span>
+            <span class="cf-tag">arXiv URL 接入</span>
+            <span class="cf-tag">远程链接 grounding</span>
+            <span class="cf-tag">中英双语</span>
           </div>
           <div class="case-cta">
             <a href="./docs/showcase/SHOWCASE.md#case-2--arxiv-link---grounded-report" class="case-link primary">
-              &#128196; View Full Case
+              &#128196; 查看完整案例
             </a>
             <a href="./docs/showcase/reports/case2/pdf-2505.03123_20260415112502/en/report.pdf" class="case-link">
-              &#128196; EN PDF
+              &#128196; 英文 PDF
             </a>
             <a href="./docs/showcase/reports/case2/pdf-2505.03123_20260415112502/zh/report.pdf" class="case-link">
-              &#128196; ZH PDF
+              &#128196; 中文 PDF
             </a>
           </div>
         </div>
@@ -1577,29 +1577,29 @@
         <div class="case-header">
           <span class="case-num">03</span>
           <div class="case-meta">
-            <div class="case-type ct-rose">YouTube Video</div>
-            <div class="case-title">Same Video &rarr; Three Research Depths</div>
+            <div class="case-type ct-rose">YouTube 视频</div>
+            <div class="case-title">同一视频 &rarr; 三档调研深度</div>
           </div>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            The same YouTube video run under simple / medium / complex modes — demonstrating how research_mode controls literature scope, opened sources, and report depth while keeping everything else constant.
+            同一个 YouTube 视频分别以 simple / medium / complex 模式运行，展示 research_mode 如何在其他条件不变时控制文献范围、打开来源数量和报告深度。
           </div>
           <div class="case-features">
-            <span class="cf-tag">simple mode</span>
-            <span class="cf-tag">medium mode</span>
-            <span class="cf-tag">complex mode</span>
-            <span class="cf-tag">Depth comparison</span>
+            <span class="cf-tag">simple 模式</span>
+            <span class="cf-tag">medium 模式</span>
+            <span class="cf-tag">complex 模式</span>
+            <span class="cf-tag">深度对比</span>
           </div>
           <div class="case-cta">
             <a href="./docs/showcase/SHOWCASE.md#case-3--same-input-different-research-depths" class="case-link primary">
-              &#128196; View Full Case
+              &#128196; 查看完整案例
             </a>
             <a href="./docs/showcase/reports/case3/simple/video-55_20260417134520/en/report.pdf" class="case-link">
-              &#128196; Simple EN
+              &#128196; Simple 英文版
             </a>
             <a href="./docs/showcase/reports/case3/complex/video-55_20260416144423/en/report.pdf" class="case-link">
-              &#128196; Complex EN
+              &#128196; Complex 英文版
             </a>
           </div>
         </div>
@@ -1610,29 +1610,29 @@
         <div class="case-header">
           <span class="case-num">04</span>
           <div class="case-meta">
-            <div class="case-type ct-violet">Review Loop</div>
-            <div class="case-title">Draft &rarr; Review &rarr; Rewrite &rarr; Pass</div>
+            <div class="case-type ct-violet">审阅循环</div>
+            <div class="case-title">草稿 &rarr; 审阅 &rarr; 重写 &rarr; 通过</div>
           </div>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            A draft report scored 60/100. After 4 rounds of Review &rarr; Rewrite — with explicit repair actions per round — the final report reached 91/100 and passed the quality gate before PPTX + DOCX export.
+            一份草稿报告初始得分为 60/100。经过 4 轮明确修复动作驱动的 Review &rarr; Rewrite 后，最终报告提升至 91/100，并在导出 PPT/PPTXX + DOCX 前通过质量门槛。
           </div>
           <div class="case-features">
-            <span class="cf-tag">4 review rounds</span>
-            <span class="cf-tag">60 &rarr; 91 score</span>
-            <span class="cf-tag">+31 improvement</span>
-            <span class="cf-tag">PPTX + DOCX export</span>
+            <span class="cf-tag">4 轮审阅</span>
+            <span class="cf-tag">60 &rarr; 91 分</span>
+            <span class="cf-tag">+31 分提升</span>
+            <span class="cf-tag">PPT/PPTXX + DOCX 导出</span>
           </div>
           <div class="case-cta">
             <a href="./docs/showcase/SHOWCASE.md#case-4--review--rewrite-for-better-deliverables" class="case-link primary">
-              &#128196; View Full Case
+              &#128196; 查看完整案例
             </a>
             <a href="./docs/showcase/reports/case4/berfore_review/pdf-2506.10006v2before_20260416025902/en/report.pdf" class="case-link">
-              &#128196; Before Review
+              &#128196; 审阅前
             </a>
             <a href="./docs/showcase/reports/case4/after_review/pdf-2506.10006v2_20260416025902/en/report.pdf" class="case-link">
-              &#128196; After Rewrite
+              &#128196; 重写后
             </a>
           </div>
         </div>
@@ -1643,29 +1643,29 @@
         <div class="case-header">
           <span class="case-num">05</span>
           <div class="case-meta">
-            <div class="case-type ct-gold">ZIP Archive</div>
-            <div class="case-title">Mixed Materials &rarr; Bilingual Final Delivery</div>
+            <div class="case-type ct-gold">ZIP 压缩包</div>
+            <div class="case-title">混合材料 &rarr; 双语最终交付</div>
           </div>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            A ZIP package with a PDF, two spreadsheets, and a PPTX on HER2 research. Each file is grounded in parallel, aggregated into a unified note, researched, reviewed, and exported as bilingual PDF.
+            一个关于 HER2 研究的 ZIP 压缩包，内含 PDF、两份表格和一份 PPT/PPTXX。每个文件会并行 grounding，再汇总为统一笔记，随后完成调研、审阅，并导出为双语 PDF。
           </div>
           <div class="case-features">
-            <span class="cf-tag">Archive grounding</span>
-            <span class="cf-tag">Multi-format parallel</span>
-            <span class="cf-tag">Cross-file synthesis</span>
-            <span class="cf-tag">EN + ZH PDF</span>
+            <span class="cf-tag">压缩包 grounding</span>
+            <span class="cf-tag">多格式并行</span>
+            <span class="cf-tag">跨文件综合</span>
+            <span class="cf-tag">中英双语 PDF</span>
           </div>
           <div class="case-cta">
             <a href="./docs/showcase/SHOWCASE.md#case-5--mixed-materials---bilingual-final-delivery" class="case-link primary">
-              &#128196; View Full Case
+              &#128196; 查看完整案例
             </a>
             <a href="./docs/showcase/reports/case5/archive-HER2-case5_20260415130231/en/report.pdf" class="case-link">
-              &#128196; EN PDF
+              &#128196; 英文 PDF
             </a>
             <a href="./docs/showcase/reports/case5/archive-HER2-case5_20260415130231/zh/report.pdf" class="case-link">
-              &#128196; ZH PDF
+              &#128196; 中文 PDF
             </a>
           </div>
         </div>
@@ -1675,7 +1675,7 @@
 
     <div style="text-align:center; margin-top: 24px;">
       <a href="./docs/showcase/SHOWCASE.md" class="case-link" style="font-size:11px; padding:8px 20px;">
-        &#8594; View Full Showcase &rarr;
+        &#8594; 查看完整案例集 &rarr;
       </a>
     </div>
   </div>
@@ -1688,66 +1688,66 @@
 ══════════════════════════════════════════ -->
 <section id="qs">
   <div class="wrap">
-    <p class="eyebrow">Quick Start</p>
-    <h2>Get <span class="dim">started</span></h2>
-    <p class="lead">Three steps from raw input to complete research report.</p>
+    <p class="eyebrow">快速开始</p>
+    <h2>开始<span class="dim">上手</span></h2>
+    <p class="lead">三步，从原始输入到完整研究报告。</p>
 
     <div class="qs-grid rv">
 
       <div class="code-block">
         <div class="cb-header">
-          <span class="cb-title">one-report &middot; prompt example</span>
+          <span class="cb-title">one-report &middot; Prompt 示例</span>
           <div class="cb-dots">
             <div class="cb-dot" style="background:#b8924a;"></div>
             <div class="cb-dot" style="background:#2a9d8f;"></div>
             <div class="cb-dot" style="background:#7c6eb0;"></div>
           </div>
         </div>
-<pre><span class="cmt"># Send this prompt to the Cursor Agent</span>
+<pre><span class="cmt"># 将下面这段 prompt 发给 Cursor Agent</span>
 
-<span class="kw">Please use</span> <span class="str">.cursor/skills/one-report/</span>
-<span class="kw">to generate a full report.</span>
+<span class="kw">请使用</span> <span class="str">.cursor/skills/one-report/</span>
+<span class="kw">来生成完整报告。</span>
 
-<span class="sym">Input:</span>
-  <span class="cmt">input_path:</span> <span class="str">docs/showcase/inputs/case5/HER2-case5.zip</span>
-  <span class="cmt">output_formats:</span> <span class="str">pdf</span>
-  <span class="cmt">research_mode:</span> <span class="str">complex</span>
+<span class="sym">输入：</span>
+  <span class="cmt">input_path：</span> <span class="str">docs/showcase/inputs/case5/HER2-case5.zip</span>
+  <span class="cmt">output_formats：</span> <span class="str">pdf</span>
+  <span class="cmt">research_mode：</span> <span class="str">complex</span>
 
-<span class="sym">Search settings:</span>
-  <span class="cmt">search_backend:</span>  <span class="str">cursor</span>
-  <span class="cmt">require_open_link:</span> <span class="num">true</span>
-  <span class="cmt">download_opened_literature:</span> <span class="num">true</span>
+<span class="sym">搜索设置：</span>
+  <span class="cmt">search_backend：</span>  <span class="str">cursor</span>
+  <span class="cmt">require_open_link：</span> <span class="num">true</span>
+  <span class="cmt">download_opened_literature：</span> <span class="num">true</span>
 
-<span class="sym">Optional:</span>
-  <span class="cmt">output_lang:</span> <span class="str">zh</span>
-  <span class="cmt">transcription_language:</span> <span class="str">zh</span></pre>
+<span class="sym">可选项：</span>
+  <span class="cmt">output_lang：</span> <span class="str">zh</span>
+  <span class="cmt">transcription_language：</span> <span class="str">zh</span></pre>
       </div>
 
       <div class="qs-steps">
         <div class="qs-step">
           <div class="qs-num">1</div>
           <div>
-            <h4>Prepare your input file</h4>
-            <p>Place files in <span class="mono">data/raw_inputs/</span>. Supports audio, video, documents, spreadsheets, PPT, archives, or paste a link directly.</p>
+            <h4>准备输入文件</h4>
+            <p>将文件放入 <span class="mono">data/raw_inputs/</span>。支持音频、视频、文档、表格、PPT/PPTX、压缩包，也支持直接粘贴链接。</p>
           </div>
         </div>
         <div class="qs-step">
           <div class="qs-num">2</div>
           <div>
-            <h4>Send prompt to Cursor Agent</h4>
-            <p>Read <span class="mono">.cursor/skills/one-report/SKILL.md</span> and fill in input_path, research_mode, and output_formats as shown.</p>
+            <h4>把 prompt 发给 Cursor Agent</h4>
+            <p>阅读 <span class="mono">.cursor/skills/one-report/SKILL.md</span>，按示例填写 input_path、research_mode 和 output_formats。</p>
           </div>
         </div>
         <div class="qs-step">
           <div class="qs-num">3</div>
           <div>
-            <h4>Wait for full pipeline execution</h4>
-            <p>Agent automatically runs grounding &rarr; research &rarr; summary &rarr; review &rarr; export end-to-end.</p>
+            <h4>等待全流程执行</h4>
+            <p>Agent 会自动完成 grounding &rarr; research &rarr; summary &rarr; review &rarr; export 的端到端执行。</p>
           </div>
         </div>
 
         <div class="qs-paths">
-          <div class="qs-paths-head">OUTPUT PATHS</div>
+          <div class="qs-paths-head">输出路径</div>
           <div class="qs-path">data/grounded_notes/&lt;id&gt;/grounded.md</div>
           <div class="qs-path">data/lit_results/&lt;id&gt;/lit.md</div>
           <div class="qs-path">data/report_inputs/&lt;id&gt;/summary.md</div>
@@ -1766,13 +1766,13 @@
   <div class="footer-logo">
     <span class="claw">🦞</span> <span><span class="gold">One</span>ResearchClaw</span>
   </div>
-  <div class="footer-copy">Any Research. One Claw.</div>
+  <div class="footer-copy">任何研究，一爪搞定。</div>
   <div class="footer-links">
-    <a href="#pipeline">Pipeline</a>
-    <a href="#formats">Formats</a>
-    <a href="#arch">Architecture</a>
-    <a href="#showcase">Showcase</a>
-    <a href="#qs">Quick Start</a>
+    <a href="#pipeline">流程总览</a>
+    <a href="#formats">格式</a>
+    <a href="#arch">架构设计</a>
+    <a href="#showcase">案例展示</a>
+    <a href="#qs">快速开始</a>
   </div>
 </footer>
 
