@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneResearchClaw — Any Research. One Claw.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================
+       TOKENS — Light Editorial
+    ========================================= */
+    :root {
+      --bg:           #f7f6f2;
+      --bg-card:      #ffffff;
+      --bg-subtle:    #f0efe9;
+      --bg-muted:     #e8e7e1;
+
+      --ink:          #1a1815;
+      --ink-2:        #4a4540;
+      --ink-3:        #8a847c;
+      --ink-4:        #b8b3aa;
+
+      --gold:         #b8924a;
+      --gold-l:       #d4ae64;
+      --gold-g:       rgba(184,146,74,.07);
+      --gold-g2:      rgba(184,146,74,.12);
+
+      --teal:         #2a9d8f;
+      --teal-g:       rgba(42,157,143,.07);
+
+      --rose:         #c0625a;
+      --rose-g:       rgba(192,98,90,.07);
+
+      --violet:       #7c6eb0;
+      --violet-g:     rgba(124,110,176,.07);
+
+      --border:       #e0ddd6;
+      --border-soft:  #ece9e2;
+
+      --shadow-xs:     0 1px 3px rgba(26,24,21,.05);
+      --shadow-sm:     0 2px 8px rgba(26,24,21,.07);
+      --shadow-md:     0 6px 20px rgba(26,24,21,.09);
+      --shadow-lg:     0 14px 40px rgba(26,24,21,.11);
+      --shadow-xl:     0 28px 64px rgba(26,24,21,.13);
+
+      --ff-serif:  'Cormorant Garamond', Georgia, serif;
+      --ff-sans:   'DM Sans', system-ui, sans-serif;
+      --ff-mono:   'DM Mono', 'Fira Code', monospace;
+
+      --radius-xs: 4px;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+    }
+
+    /* =========================================
+       RESET
+    ========================================= */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--ff-sans);
+      font-size: 15px;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* =========================================
+       BACKGROUND
+    ========================================= */
+    #bg {
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; overflow: hidden;
+    }
+    #bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(184,146,74,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,146,74,.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+    #bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 40% at 50% -5%, rgba(184,146,74,.05) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 35% at 90% 105%, rgba(42,157,143,.03) 0%, transparent 60%);
+    }
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 64px;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 0 64px;
+      background: rgba(247,246,242,.92);
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 3px;
+      font-family: var(--ff-serif); font-size: 18px;
+      font-weight: 600; color: var(--ink);
+      letter-spacing: -.01em;
+    }
+    .nav-logo .claw { font-size: 22px; }
+    .nav-logo .gold { color: var(--gold); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 11px; font-weight: 500; color: var(--ink-3);
+      letter-spacing: .06em; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* =========================================
+       SHARED
+    ========================================= */
+    .wrap {
+      position: relative; z-index: 1;
+      max-width: 1160px; margin: 0 auto;
+      padding: 0 64px;
+    }
+    section { padding: 100px 0; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--ff-mono); font-size: 10px; font-weight: 500;
+      color: var(--gold); letter-spacing: .2em; text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: ''; display: block;
+      width: 24px; height: 1.5px;
+      background: var(--gold);
+    }
+
+    h2 {
+      font-family: var(--ff-serif);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 600; color: var(--ink);
+      letter-spacing: -.01em; line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    h2 .dim { color: var(--ink-4); font-style: italic; }
+
+    .lead {
+      font-size: 15px; color: var(--ink-2); max-width: 560px;
+      margin-bottom: 56px; line-height: 1.85;
+    }
+
+    /* =========================================
+       HERO
+    ========================================= */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 100px 64px 80px;
+      overflow: hidden;
+    }
+
+    /* elegant corner marks */
+    .corner {
+      position: absolute; width: 60px; height: 60px;
+      pointer-events: none;
+    }
+    .corner-tl { top: 72px; left: 64px; border-top: 1px solid rgba(184,146,74,.3); border-left: 1px solid rgba(184,146,74,.3); }
+    .corner-tr { top: 72px; right: 64px; border-top: 1px solid rgba(184,146,74,.3); border-right: 1px solid rgba(184,146,74,.3); }
+    .corner-bl { bottom: 72px; left: 64px; border-bottom: 1px solid rgba(184,146,74,.3); border-left: 1px solid rgba(184,146,74,.3); }
+    .corner-br { bottom: 72px; right: 64px; border-bottom: 1px solid rgba(184,146,74,.3); border-right: 1px solid rgba(184,146,74,.3); }
+
+    /* subtle grid dots */
+    .dot-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle, rgba(184,146,74,.15) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: .5;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold-g2);
+      border: 1px solid rgba(184,146,74,.2);
+      color: var(--gold);
+      font-family: var(--ff-mono); font-size: 10px;
+      letter-spacing: .14em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px;
+      margin-bottom: 32px;
+      animation: fadeDown .8s ease both;
+    }
+    .badge-line {
+      width: 4px; height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(56px, 10vw, 120px);
+      font-weight: 700; line-height: .93;
+      letter-spacing: -.03em;
+      margin-bottom: 20px;
+      animation: fadeUp .8s .12s ease both;
+    }
+    .hero-title .t-ink { color: var(--ink); }
+    .hero-title .t-gold { color: var(--gold); }
+    .hero-title .t-dim { color: var(--ink-4); }
+
+    .hero-product {
+      font-family: var(--ff-mono); font-size: 11px; font-weight: 500;
+      color: var(--gold);
+      letter-spacing: .16em; text-transform: uppercase;
+      margin-bottom: 14px;
+      animation: fadeUp .8s .08s ease both;
+    }
+    .hero-product span {
+      display: inline-block;
+      background: var(--gold-g2);
+      border: 1px solid rgba(184,146,74,.2);
+      border-radius: 100px;
+      padding: 4px 16px;
+    }
+
+    .hero-sub {
+      font-size: clamp(13px, 1.8vw, 17px); font-weight: 300;
+      color: var(--ink-3); letter-spacing: .03em;
+      margin-bottom: 14px;
+      animation: fadeUp .8s .2s ease both;
+    }
+    .hero-desc {
+      font-size: 15px; color: var(--ink-3);
+      max-width: 480px; margin: 0 auto 40px;
+      line-height: 1.85;
+      animation: fadeUp .8s .3s ease both;
+    }
+
+    .hero-btns {
+      display: flex; gap: 12px; justify-content: center;
+      animation: fadeUp .8s .4s ease both;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 11px 24px; border-radius: var(--radius-md);
+      font-family: var(--ff-sans); font-size: 13px; font-weight: 500;
+      cursor: pointer; border: none; transition: all .25s;
+    }
+    .btn-gold {
+      background: var(--gold); color: #fff;
+      box-shadow: 0 2px 10px rgba(184,146,74,.25);
+    }
+    .btn-gold:hover {
+      background: var(--gold-l);
+      box-shadow: 0 4px 20px rgba(184,146,74,.35);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: var(--bg-card); color: var(--ink-2);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-xs);
+    }
+    .btn-outline:hover {
+      color: var(--gold); border-color: rgba(184,146,74,.3);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Stats strip */
+    .hero-stats {
+      display: flex; justify-content: center;
+      max-width: 680px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-top: 64px;
+      box-shadow: var(--shadow-md);
+      animation: fadeUp .8s .5s ease both;
+    }
+    .hs { flex: 1; padding: 22px 20px; text-align: center; }
+    .hs:not(:last-child) { border-right: 1px solid var(--border-soft); }
+    .hs-n {
+      font-family: var(--ff-serif); font-size: 34px; font-weight: 600;
+      color: var(--gold); line-height: 1; display: block;
+    }
+    .hs-l {
+      font-family: var(--ff-mono); font-size: 9px;
+      color: var(--ink-4); text-transform: uppercase;
+      letter-spacing: .14em; margin-top: 6px;
+    }
+
+    /* scroll */
+    .scroll-hint {
+      position: absolute; bottom: 36px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--ink-4); font-family: var(--ff-mono);
+      font-size: 9px; letter-spacing: .14em;
+      animation: fadeUp .8s .9s ease both;
+    }
+    .scroll-dash {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollDash 1.8s ease infinite;
+    }
+    @keyframes scrollDash {
+      0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+    }
+
+    @keyframes fadeDown {
+      from { opacity:0; transform:translateY(-16px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* =========================================
+       CORE FEATURES
+    ========================================= */
+    .feat-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+    }
+    .feat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: all .3s;
+      position: relative; overflow: hidden;
+    }
+    .feat-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .feat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .feat-card:hover::before { opacity: 1; }
+
+    .feat-icon { font-size: 26px; display: block; margin-bottom: 14px; }
+    .feat-name {
+      font-family: var(--ff-serif); font-size: 18px; font-weight: 600;
+      color: var(--ink); margin-bottom: 8px; letter-spacing: -.01em;
+    }
+    .feat-desc { font-size: 12.5px; color: var(--ink-3); line-height: 1.7; }
+
+    /* =========================================
+       PIPELINE
+    ========================================= */
+    .pipeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .pipe-bar {
+      padding: 16px 28px;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .pipe-live {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 8px rgba(184,146,74,.4);
+      animation: livePulse 2s ease infinite;
+      flex-shrink: 0;
+    }
+    @keyframes livePulse {
+      0%,100% { box-shadow: 0 0 6px rgba(184,146,74,.3); }
+      50% { box-shadow: 0 0 14px rgba(184,146,74,.6); }
+    }
+    .pipe-bar-title {
+      font-family: var(--ff-mono); font-size: 10px;
+      color: var(--ink-4); letter-spacing: .1em;
+    }
+
+    .flow-track {
+      height: 2px; background: var(--bg-muted);
+      position: relative; overflow: hidden;
+    }
+    .flow-dot {
+      position: absolute; top: 0; bottom: 0;
+      width: 60px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      animation: flowMove 2.5s linear infinite;
+    }
+    .flow-dot:nth-child(2) { animation-delay: -.83s; }
+    .flow-dot:nth-child(3) { animation-delay: -1.66s; }
+    @keyframes flowMove {
+      from { left: -60px; }
+      to   { left: 100%; }
+    }
+
+    .pipe-stages { display: flex; align-items: stretch; }
+
+    .ps {
+      flex: 1; padding: 28px 10px;
+      text-align: center; border-right: 1px solid var(--border-soft);
+      position: relative; transition: background .25s;
+      cursor: default;
+    }
+    .ps:last-child { border-right: none; }
+    .ps:hover { background: var(--bg-subtle); }
+
+    .ps::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .ps:hover::after { opacity: 1; }
+
+    .ps-num {
+      font-family: var(--ff-mono); font-size: 9px;
+      color: var(--ink-4); letter-spacing: .1em; margin-bottom: 14px;
+    }
+    .ps-icon { font-size: 26px; display: block; margin-bottom: 12px; }
+    .ps-name {
+      font-family: var(--ff-serif); font-size: 15px; font-weight: 600;
+      color: var(--ink); margin-bottom: 6px;
+    }
+    .ps-sub { font-size: 11px; color: var(--ink-3); line-height: 1.6; }
+
+    .ps-arrow {
+      width: 24px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 14px; font-weight: 700;
+      animation: arrowPulse 2.5s ease infinite;
+    }
+    @keyframes arrowPulse {
+      0%,100% { opacity: .25; }
+      50% { opacity: .75; }
+    }
+
+    .pipe-io {
+      border-top: 1px solid var(--border-soft);
+      padding: 18px 28px;
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px;
+      align-items: center;
+    }
+    .pipe-io-head {
+      font-family: var(--ff-mono); font-size: 9px;
+      color: var(--ink-4); letter-spacing: .14em; margin-bottom: 10px;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-family: var(--ff-mono); font-size: 11px; font-weight: 400;
+      padding: 3px 9px; border-radius: 5px;
+    }
+    .tg-gold   { background: var(--gold-g2);  color: var(--gold);   border: 1px solid rgba(184,146,74,.15); }
+    .tg-teal   { background: var(--teal-g);   color: var(--teal);   border: 1px solid rgba(42,157,143,.15); }
+    .tg-rose   { background: var(--rose-g);   color: var(--rose);   border: 1px solid rgba(192,98,90,.15); }
+    .tg-violet { background: var(--violet-g); color: var(--violet); border: 1px solid rgba(124,110,176,.15); }
+    .tg-muted  { background: var(--bg-muted); color: var(--ink-3); border: 1px solid var(--border); }
+
+    .io-arrow {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .io-line {
+      width: 56px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .io-arrow-sym { color: var(--gold); font-size: 14px; }
+
+    /* =========================================
+       INPUT FORMAT CARDS
+    ========================================= */
+    .fmt-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+    }
+    .fmt-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px 24px;
+      transition: all .3s;
+    }
+    .fmt-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(184,146,74,.2);
+    }
+    .fmt-top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .fmt-icon { font-size: 26px; display: block; flex-shrink: 0; }
+    .fmt-name {
+      font-family: var(--ff-serif); font-size: 16px; font-weight: 600;
+      color: var(--ink); letter-spacing: -.01em;
+    }
+    .fmt-out  { font-size: 11px; color: var(--ink-4); margin-top: 2px; font-style: italic; }
+    .fmt-exts { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+    .fmt-desc { font-size: 12.5px; color: var(--ink-3); line-height: 1.7; }
+
+    /* =========================================
+       ARCHITECTURE
+    ========================================= */
+    .arch-wrap {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .arch-row {
+      display: grid; grid-template-columns: 200px 1fr;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+    .arch-row:last-child { border-bottom: none; }
+    .arch-meta {
+      padding: 24px 24px 24px 28px;
+      border-right: 1px solid var(--border);
+    }
+    .arch-badge {
+      display: inline-block;
+      font-family: var(--ff-mono); font-size: 9px;
+      padding: 3px 8px; border-radius: var(--radius-xs);
+      letter-spacing: .1em; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .ab-gold   { background: var(--gold-g2);  color: var(--gold); }
+    .ab-teal   { background: var(--teal-g);   color: var(--teal); }
+    .ab-violet { background: var(--violet-g); color: var(--violet); }
+
+    .arch-title {
+      font-family: var(--ff-serif); font-size: 16px; font-weight: 600;
+      color: var(--ink); margin-bottom: 5px;
+    }
+    .arch-sub { font-size: 11px; color: var(--ink-3); line-height: 1.6; }
+    .arch-skills {
+      padding: 18px 24px; display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .skill-chip {
+      display: flex; align-items: center; gap: 7px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 6px 11px;
+      transition: all .2s; cursor: default;
+    }
+    .skill-chip:hover {
+      background: var(--gold-g2); border-color: rgba(184,146,74,.2);
+    }
+    .skill-chip-icon { font-size: 13px; }
+    .skill-chip-name {
+      font-family: var(--ff-mono); font-size: 11px; color: var(--ink-2);
+    }
+    .skill-chip:hover .skill-chip-name { color: var(--gold); }
+
+    .arch-row.l1 { border-left: 3px solid var(--gold); }
+    .arch-row.l2 { border-left: 3px solid var(--teal); }
+    .arch-row.l3 { border-left: 3px solid var(--violet); }
+
+    /* =========================================
+       OUTPUT FORMATS
+    ========================================= */
+    .out-grid {
+      display: grid; grid-template-columns: repeat(5,1fr); gap: 14px;
+    }
+    .out-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 16px;
+      text-align: center; transition: all .3s;
+    }
+    .out-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .out-card::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+    }
+    .out-icon { font-size: 28px; display: block; margin-bottom: 10px; }
+    .out-name {
+      font-family: var(--ff-serif); font-size: 15px; font-weight: 600;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .out-ext { font-family: var(--ff-mono); font-size: 11px; margin-bottom: 6px; }
+    .out-desc { font-size: 11px; color: var(--ink-3); line-height: 1.5; }
+
+    /* =========================================
+       RESEARCH DEPTH
+    ========================================= */
+    .depth-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+    }
+    .depth-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: all .3s;
+    }
+    .depth-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .depth-mode {
+      font-family: var(--ff-mono); font-size: 9px;
+      text-transform: uppercase; letter-spacing: .12em;
+      margin-bottom: 12px; font-weight: 500;
+    }
+    .dm-s { color: var(--ink-4); }
+    .dm-m { color: var(--gold); }
+    .dm-c { color: var(--violet); }
+    .depth-name {
+      font-family: var(--ff-serif); font-size: 20px; font-weight: 600;
+      color: var(--ink); margin-bottom: 10px;
+    }
+    .depth-desc { font-size: 12.5px; color: var(--ink-3); line-height: 1.7; margin-bottom: 16px; }
+    .depth-meta { display: flex; flex-wrap: wrap; gap: 6px; }
+    .dm-tag {
+      font-family: var(--ff-mono); font-size: 10px;
+      padding: 3px 8px; border-radius: 5px;
+      background: var(--bg-muted); color: var(--ink-3);
+      border: 1px solid var(--border);
+    }
+
+    /* =========================================
+       REMOTE LINKS
+    ========================================= */
+    .link-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+    }
+    .link-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px 24px;
+      transition: all .3s;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .link-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(184,146,74,.2);
+    }
+    .link-icon { font-size: 26px; flex-shrink: 0; }
+    .link-name {
+      font-family: var(--ff-serif); font-size: 15px; font-weight: 600;
+      color: var(--ink); margin-bottom: 3px;
+    }
+    .link-desc { font-size: 11px; color: var(--ink-3); }
+
+    /* =========================================
+       NEWS
+    ========================================= */
+    .news-list {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .news-item {
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex; gap: 20px; align-items: center;
+      transition: background .2s;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-item:hover { background: var(--bg-subtle); }
+    .news-date {
+      font-family: var(--ff-mono); font-size: 10px;
+      color: var(--ink-4); white-space: nowrap; min-width: 80px;
+    }
+    .news-text { font-size: 13px; color: var(--ink-2); flex: 1; }
+    .news-text strong { color: var(--ink); }
+    .news-tag {
+      font-family: var(--ff-mono); font-size: 9px;
+      padding: 2px 7px; border-radius: 4px;
+      background: var(--gold-g2); color: var(--gold);
+      border: 1px solid rgba(184,146,74,.15);
+      white-space: nowrap; flex-shrink: 0;
+    }
+
+    /* =========================================
+       SHOWCASE
+    ========================================= */
+    .showcase-intro {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 40px 48px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 24px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+    }
+    .showcase-intro h3 {
+      font-family: var(--ff-serif); font-size: 24px; font-weight: 600;
+      color: var(--ink); margin-bottom: 10px;
+    }
+    .showcase-intro p {
+      font-size: 13px; color: var(--ink-3); line-height: 1.75;
+    }
+    .showcase-stats {
+      display: flex; gap: 32px;
+    }
+    .ss-item { text-align: center; }
+    .ss-n {
+      font-family: var(--ff-serif); font-size: 32px; font-weight: 600;
+      color: var(--gold); display: block;
+    }
+    .ss-l {
+      font-family: var(--ff-mono); font-size: 9px;
+      color: var(--ink-4); text-transform: uppercase;
+      letter-spacing: .12em; margin-top: 4px;
+    }
+
+    .case-grid {
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 16px;
+    }
+    .case-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all .3s;
+    }
+    .case-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .case-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .case-num {
+      font-family: var(--ff-serif); font-size: 28px; font-weight: 700;
+      color: var(--ink-4); line-height: 1;
+    }
+    .case-meta {}
+    .case-type {
+      font-family: var(--ff-mono); font-size: 9px;
+      text-transform: uppercase; letter-spacing: .12em;
+      margin-bottom: 3px;
+    }
+    .ct-gold   { color: var(--gold); }
+    .ct-teal   { color: var(--teal); }
+    .ct-rose   { color: var(--rose); }
+    .ct-violet { color: var(--violet); }
+    .case-title {
+      font-family: var(--ff-serif); font-size: 15px; font-weight: 600;
+      color: var(--ink);
+    }
+    .case-body { padding: 16px 24px 20px; }
+    .case-desc {
+      font-size: 12.5px; color: var(--ink-3); line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .case-features {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .cf-tag {
+      font-family: var(--ff-mono); font-size: 10px;
+      padding: 3px 8px; border-radius: 5px;
+      background: var(--bg-subtle); color: var(--ink-3);
+      border: 1px solid var(--border);
+    }
+
+    /* =========================================
+       QUICK START
+    ========================================= */
+    .qs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+    /* Case card CTA */
+    .case-cta {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-soft);
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .case-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--ff-mono); font-size: 10px;
+      font-weight: 500; letter-spacing: .04em;
+      padding: 5px 11px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg-subtle); color: var(--ink-3);
+      transition: all .2s; cursor: pointer;
+    }
+    .case-link:hover {
+      background: var(--gold-g2); color: var(--gold);
+      border-color: rgba(184,146,74,.25);
+    }
+    .case-link.primary {
+      background: var(--gold); color: #fff;
+      border-color: var(--gold);
+    }
+    .case-link.primary:hover {
+      background: var(--gold-l);
+      box-shadow: 0 2px 10px rgba(184,146,74,.3);
+    }
+
+    .code-block {
+      background: #1a1815; border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .cb-header {
+      padding: 12px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .cb-title {
+      font-family: var(--ff-mono); font-size: 10px;
+      color: rgba(255,255,255,.2); letter-spacing: .08em;
+    }
+    .cb-dots { display: flex; gap: 6px; }
+    .cb-dot  { width: 10px; height: 10px; border-radius: 50%; }
+    pre {
+      padding: 22px; font-family: var(--ff-mono);
+      font-size: 11.5px; line-height: 1.8; color: #9e9890;
+      overflow-x: auto;
+    }
+    .kw  { color: var(--gold-l); }
+    .str { color: #8fcecd; }
+    .cmt { color: #4a4640; }
+    .num { color: #d4ae64; }
+    .sym { color: var(--violet); }
+
+    .qs-steps { display: flex; flex-direction: column; gap: 18px; }
+    .qs-step { display: flex; gap: 14px; }
+    .qs-num {
+      width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+      background: var(--gold-g2); border: 1px solid rgba(184,146,74,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-mono); font-size: 12px;
+      font-weight: 500; color: var(--gold);
+    }
+    .qs-step h4 {
+      font-family: var(--ff-serif); font-size: 15px; font-weight: 600;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .qs-step p { font-size: 12.5px; color: var(--ink-3); line-height: 1.65; }
+    .mono { font-family: var(--ff-mono); font-size: 11px; color: var(--gold); }
+
+    .qs-paths {
+      background: var(--bg-subtle); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 14px 18px; margin-top: 4px;
+    }
+    .qs-paths-head {
+      font-family: var(--ff-mono); font-size: 9px; color: var(--gold);
+      letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .qs-path {
+      font-family: var(--ff-mono); font-size: 11px;
+      color: var(--ink-3); line-height: 1.9;
+    }
+    .qs-path.hi { color: var(--gold); }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 40px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-logo {
+      font-family: var(--ff-serif); font-size: 16px; font-weight: 600;
+      color: var(--ink-2);
+    }
+    .footer-logo .gold { color: var(--gold); }
+    .footer-copy { font-size: 12px; color: var(--ink-4); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-family: var(--ff-mono); font-size: 10px; color: var(--ink-4);
+      letter-spacing: .08em; transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* =========================================
+       SEPARATOR
+    ========================================= */
+    .sep {
+      position: relative; z-index: 1;
+      max-width: 1160px; margin: 0 auto; padding: 0 64px;
+    }
+    .sep hr { border: none; border-top: 1px solid var(--border); }
+
+    /* =========================================
+       SCROLL REVEAL
+    ========================================= */
+    .rv {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .rv.on { opacity: 1; transform: none; }
+    .rv.d1 { transition-delay: .1s; }
+    .rv.d2 { transition-delay: .18s; }
+    .rv.d3 { transition-delay: .26s; }
+    .rv.d4 { transition-delay: .34s; }
+    .rv.d5 { transition-delay: .42s; }
+  </style>
+</head>
+<body>
+
+<!-- ── BACKGROUND ── -->
+<div id="bg"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">
+    <span class="claw">🦞</span>
+    <span><span class="gold">One</span>ResearchClaw</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#pipeline">Pipeline</a></li>
+    <li><a href="#formats">Formats</a></li>
+    <li><a href="#arch">Architecture</a></li>
+    <li><a href="#showcase">Showcase</a></li>
+    <li><a href="#qs">Quick Start</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<div class="hero">
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+  <div class="dot-grid"></div>
+
+  <div class="hero-badge">
+    <div class="badge-line"></div>
+    AI Research Pipeline &nbsp;·&nbsp; Cursor Agent Skills
+    <div class="badge-line"></div>
+  </div>
+
+  <div class="hero-product"><span>🦞</span>&nbsp; OneResearchClaw</div>
+
+  <h1 class="hero-title">
+    <span class="t-dim">Any</span> <span class="t-ink">Research.</span><br>
+    <span class="t-gold">One</span> <span class="t-ink">Claw.</span>
+  </h1>
+
+  <p class="hero-sub">Multi-Format Input &rarr; Structured Research Report Generation Pipeline</p>
+
+  <p class="hero-desc">
+    From meeting audio/video, documents, tables, and presentations to arXiv, YouTube, and Bilibili links — <br>
+    automatically structured, researched, reviewed, and exported.
+  </p>
+
+  <div class="hero-btns">
+    <a href="#qs"        class="btn btn-gold">Get Started</a>
+    <a href="#pipeline"   class="btn btn-outline">View Pipeline</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hs"><span class="hs-n" data-target="6">0</span><div class="hs-l">Input Types</div></div>
+    <div class="hs"><span class="hs-n" data-target="16">0</span><div class="hs-l">Agent Skills</div></div>
+    <div class="hs"><span class="hs-n" data-target="3">0</span><div class="hs-l">Depth Modes</div></div>
+    <div class="hs"><span class="hs-n" data-target="5">0</span><div class="hs-l">Export Formats</div></div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-dash"></div>
+    SCROLL
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CORE FEATURES
+══════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Core Features</p>
+    <h2>Built for <span class="dim">real research</span> workflows</h2>
+    <p class="lead">From multi-source input to quality review, every step is designed for real-world research needs.</p>
+
+    <div class="feat-grid">
+      <div class="feat-card rv">
+        <span class="feat-icon">🧠</span>
+        <div class="feat-name">Multi-Topic Splitting</div>
+        <div class="feat-desc">Long meetings are automatically analyzed for independent topics. Each topic generates its own research report with clear boundaries.</div>
+      </div>
+      <div class="feat-card rv d1">
+        <span class="feat-icon">🎚️</span>
+        <div class="feat-name">Controllable Depth</div>
+        <div class="feat-desc">Choose from simple / medium / complex modes to control literature scope, source opening, and research cost.</div>
+      </div>
+      <div class="feat-card rv d2">
+        <span class="feat-icon">🔎</span>
+        <div class="feat-name">Directed Research</div>
+        <div class="feat-desc">Candidate queries are generated before retrieval. Confirm, add, or refine them before search begins to reduce waste.</div>
+      </div>
+      <div class="feat-card rv d3">
+        <span class="feat-icon">🧪</span>
+        <div class="feat-name">Multi-Model Review</div>
+        <div class="feat-desc">Review → Rewrite loops with multi-dimensional quality diagnosis and bounded revision until the quality gate is passed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><hr></div>
+
+<!-- ══════════════════════════════════════════
+     PIPELINE
+══════════════════════════════════════════ -->
+<section id="pipeline">
+  <div class="wrap">
+    <p class="eyebrow">Pipeline</p>
+    <h2>End-to-end <span class="dim">automated</span> pipeline</h2>
+    <p class="lead">From raw input to deliverable research report — fully automated with no manual handoffs.</p>
+
+    <div class="pipeline-card rv">
+      <div class="pipe-bar">
+        <div class="pipe-live"></div>
+        <span class="pipe-bar-title">one-report &nbsp;&middot;&nbsp; Full-pipeline automation entry point</span>
+      </div>
+
+      <div class="flow-track">
+        <div class="flow-dot"></div>
+        <div class="flow-dot"></div>
+        <div class="flow-dot"></div>
+      </div>
+
+      <div class="pipe-stages">
+        <div class="ps">
+          <div class="ps-num">STAGE &middot; 0</div>
+          <span class="ps-icon">🔀</span>
+          <div class="ps-name">Smart Routing</div>
+          <div class="ps-sub">Identify input type<br>Dispatch to pipeline</div>
+        </div>
+        <div class="ps-arrow">&rsaquo;</div>
+        <div class="ps">
+          <div class="ps-num">STAGE &middot; 1</div>
+          <span class="ps-icon">🏗️</span>
+          <div class="ps-name">Grounding</div>
+          <div class="ps-sub">Extract key content<br>Generate structured notes</div>
+        </div>
+        <div class="ps-arrow">&rsaquo;</div>
+        <div class="ps">
+          <div class="ps-num">STAGE &middot; 2</div>
+          <span class="ps-icon">🔍</span>
+          <div class="ps-name">Literature Research</div>
+          <div class="ps-sub">Directed retrieval of<br>relevant literature &amp; sources</div>
+        </div>
+        <div class="ps-arrow">&rsaquo;</div>
+        <div class="ps">
+          <div class="ps-num">STAGE &middot; 3</div>
+          <span class="ps-icon">🧠</span>
+          <div class="ps-name">Synthesis</div>
+          <div class="ps-sub">Technical memo integration<br>&amp; report review</div>
+        </div>
+        <div class="ps-arrow">&rsaquo;</div>
+        <div class="ps">
+          <div class="ps-num">STAGE &middot; 4</div>
+          <span class="ps-icon">📤</span>
+          <div class="ps-name">Export</div>
+          <div class="ps-sub">md / pdf / docx<br>pptx / audio</div>
+        </div>
+      </div>
+
+      <div class="pipe-io">
+        <div>
+          <div class="pipe-io-head">INPUT FORMATS</div>
+          <div class="tags">
+            <span class="tag tg-gold">.mp3 .wav .m4a</span>
+            <span class="tag tg-gold">.mp4 .mov .mkv</span>
+            <span class="tag tg-teal">.pdf .docx .md .txt</span>
+            <span class="tag tg-teal">.xlsx .csv</span>
+            <span class="tag tg-violet">.pptx</span>
+            <span class="tag tg-muted">.zip</span>
+            <span class="tag tg-rose">arXiv / YouTube / Bilibili</span>
+          </div>
+        </div>
+        <div class="io-arrow">
+          <div class="io-line"></div>
+          <span class="io-arrow-sym">&rarr;</span>
+          <div class="io-line"></div>
+        </div>
+        <div>
+          <div class="pipe-io-head">OUTPUT FORMATS</div>
+          <div class="tags">
+            <span class="tag tg-gold">.md</span>
+            <span class="tag tg-teal">.pdf</span>
+            <span class="tag tg-teal">.docx</span>
+            <span class="tag tg-violet">.pptx</span>
+            <span class="tag tg-muted">.audio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><hr></div>
+
+<!-- ══════════════════════════════════════════
+     RESEARCH DEPTH
+══════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Research Depth</p>
+    <h2>Choose your <span class="dim">research depth</span></h2>
+    <p class="lead">Match the research mode to your task — balance coverage, cost, and report depth.</p>
+
+    <div class="depth-grid">
+      <div class="depth-card rv">
+        <div class="depth-mode dm-s">MODE &middot; simple</div>
+        <div class="depth-name">Quick Overview</div>
+        <div class="depth-desc">Rapidly understand background and supplement core related work. Ideal for lightweight briefings or initial exploration.</div>
+        <div class="depth-meta">
+          <span class="dm-tag">3&ndash;5 papers</span>
+          <span class="dm-tag">&ge;3 opened</span>
+          <span class="dm-tag">2 recent</span>
+        </div>
+      </div>
+      <div class="depth-card rv d1">
+        <div class="depth-mode dm-m">MODE &middot; medium</div>
+        <div class="depth-name">Balanced Research</div>
+        <div class="depth-desc">Balances coverage, cost, and report depth. Recommended as the default research mode for most tasks.</div>
+        <div class="depth-meta">
+          <span class="dm-tag">6&ndash;10 papers</span>
+          <span class="dm-tag">&ge;6 opened</span>
+          <span class="dm-tag">4 recent</span>
+        </div>
+      </div>
+      <div class="depth-card rv d2">
+        <div class="depth-mode dm-c">MODE &middot; complex</div>
+        <div class="depth-name">Deep Research</div>
+        <div class="depth-desc">For cross-domain, complex problems, or tasks requiring systematic literature mapping. Produces in-depth research reports.</div>
+        <div class="depth-meta">
+          <span class="dm-tag">10&ndash;15 papers</span>
+          <span class="dm-tag">&ge;10 opened</span>
+          <span class="dm-tag">6 recent</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><hr></div>
+
+<!-- ══════════════════════════════════════════
+     INPUT FORMATS
+══════════════════════════════════════════ -->
+<section id="formats">
+  <div class="wrap">
+    <p class="eyebrow">Input Support</p>
+    <h2>Supported <span class="dim">input formats</span></h2>
+    <p class="lead">Audio, video, documents, spreadsheets, slides, archives, and online links — automatically identified and routed to the appropriate pipeline.</p>
+
+    <div class="fmt-grid">
+      <div class="fmt-card rv">
+        <div class="fmt-top">
+          <span class="fmt-icon">🎙️</span>
+          <div>
+            <div class="fmt-name">Meeting Audio</div>
+            <div class="fmt-out">&rarr; Structured meeting notes</div>
+          </div>
+        </div>
+        <div class="fmt-exts">
+          <span class="tag tg-gold">.mp3</span>
+          <span class="tag tg-gold">.wav</span>
+          <span class="tag tg-gold">.m4a</span>
+        </div>
+        <div class="fmt-desc">WhisperX speech recognition with speaker diarization, auto-generating structured 7-segment notes with speaker attribution.</div>
+      </div>
+
+      <div class="fmt-card rv d1">
+        <div class="fmt-top">
+          <span class="fmt-icon">🎬</span>
+          <div>
+            <div class="fmt-name">Meeting Video</div>
+            <div class="fmt-out">&rarr; Structured meeting notes</div>
+          </div>
+        </div>
+        <div class="fmt-exts">
+          <span class="tag tg-gold">.mp4</span>
+          <span class="tag tg-gold">.mov</span>
+          <span class="tag tg-gold">.mkv</span>
+        </div>
+        <div class="fmt-desc">ffmpeg extracts the audio stream and pipes it to the meeting-audio-grounding pipeline for full structured meeting notes.</div>
+      </div>
+
+      <div class="fmt-card rv d2">
+        <div class="fmt-top">
+          <span class="fmt-icon">📄</span>
+          <div>
+            <div class="fmt-name">Documents</div>
+            <div class="fmt-out">&rarr; Structured research notes</div>
+          </div>
+        </div>
+        <div class="fmt-exts">
+          <span class="tag tg-teal">.pdf</span>
+          <span class="tag tg-teal">.docx</span>
+          <span class="tag tg-teal">.md</span>
+          <span class="tag tg-teal">.txt</span>
+        </div>
+        <div class="fmt-desc">Docling deeply extracts text, tables, figures, equations, and code blocks, producing an 8-segment structured note.</div>
+      </div>
+
+      <div class="fmt-card rv">
+        <div class="fmt-top">
+          <span class="fmt-icon">📊</span>
+          <div>
+            <div class="fmt-name">Spreadsheet Data</div>
+            <div class="fmt-out">&rarr; Data analysis notes</div>
+          </div>
+        </div>
+        <div class="fmt-exts">
+          <span class="tag tg-teal">.xlsx</span>
+          <span class="tag tg-teal">.csv</span>
+        </div>
+        <div class="fmt-desc">Extracts schema, statistical summaries, preview rows, and auto-generates visualizations. Identifies outliers and data quality issues.</div>
+      </div>
+
+      <div class="fmt-card rv d1">
+        <div class="fmt-top">
+          <span class="fmt-icon">📑</span>
+          <div>
+            <div class="fmt-name">Presentations</div>
+            <div class="fmt-out">&rarr; Presentation structure notes</div>
+          </div>
+        </div>
+        <div class="fmt-exts">
+          <span class="tag tg-violet">.pptx</span>
+        </div>
+        <div class="fmt-desc">Extracts slide structure, titles, text, figures, tables, and speaker notes. Analyzes narrative flow and key signals.</div>
+      </div>
+
+      <div class="fmt-card rv d2">
+        <div class="fmt-top">
+          <span class="fmt-icon">📦</span>
+          <div>
+            <div class="fmt-name">Archives</div>
+            <div class="fmt-out">&rarr; Archive-level summary notes</div>
+          </div>
+        </div>
+        <div class="fmt-exts">
+          <span class="tag tg-muted">.zip</span>
+        </div>
+        <div class="fmt-desc">Unpacks and identifies each subfile type, parallel-calls corresponding grounding skills, and generates a cross-file summary note.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><hr></div>
+
+<!-- ══════════════════════════════════════════
+     REMOTE LINKS
+══════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Cloud Ingestion</p>
+    <h2>One-click <span class="dim">cloud link</span> ingestion</h2>
+    <p class="lead">arXiv papers, YouTube and Bilibili videos — paste a link and the system automatically downloads and enters the research pipeline.</p>
+
+    <div class="link-grid">
+      <div class="link-card rv">
+        <span class="link-icon">📄</span>
+        <div>
+          <div class="link-name">arXiv</div>
+          <div class="link-desc">arxiv.org/abs/... / pdf &rarr; downloaded as PDF</div>
+        </div>
+      </div>
+      <div class="link-card rv d1">
+        <span class="link-icon">🎬</span>
+        <div>
+          <div class="link-name">YouTube</div>
+          <div class="link-desc">youtube.com/watch, youtu.be &rarr; downloaded as video</div>
+        </div>
+      </div>
+      <div class="link-card rv d2">
+        <span class="link-icon">🎬</span>
+        <div>
+          <div class="link-name">Bilibili</div>
+          <div class="link-desc">BV... / av... / b23.tv &rarr; downloaded as video</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><hr></div>
+
+<!-- ══════════════════════════════════════════
+     ARCHITECTURE
+══════════════════════════════════════════ -->
+<section id="arch">
+  <div class="wrap">
+    <p class="eyebrow">Architecture</p>
+    <h2>Three-layer <span class="dim">decoupled</span> architecture</h2>
+    <p class="lead">Grounding &rarr; Middle &rarr; Output. Each layer is driven by independent Cursor Agent Skills — clear responsibilities, easy to extend.</p>
+
+    <div class="arch-wrap rv">
+      <div class="arch-row l1">
+        <div class="arch-meta">
+          <div class="arch-badge ab-gold">LAYER &middot; 1</div>
+          <div class="arch-title">Grounding Layer</div>
+          <div class="arch-sub">Input file &rarr; structured grounded.md<br>Multi-format parallel processing</div>
+        </div>
+        <div class="arch-skills">
+          <div class="skill-chip"><span class="skill-chip-icon">🔀</span><span class="skill-chip-name">input-router</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">🎙️</span><span class="skill-chip-name">audio-structuring</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">🗣️</span><span class="skill-chip-name">meeting-audio-grounding</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">🎬</span><span class="skill-chip-name">meeting-video-grounding</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">📝</span><span class="skill-chip-name">meeting-grounding</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">📄</span><span class="skill-chip-name">document-grounding</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">📊</span><span class="skill-chip-name">table-grounding</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">📑</span><span class="skill-chip-name">pptx-grounding</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">📦</span><span class="skill-chip-name">archive-grounding</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">☁️</span><span class="skill-chip-name">remote-input</span></div>
+        </div>
+      </div>
+
+      <div class="arch-row l2">
+        <div class="arch-meta">
+          <div class="arch-badge ab-teal">LAYER &middot; 2</div>
+          <div class="arch-title">Middle Layer</div>
+          <div class="arch-sub">grounded.md &rarr; research_report.md<br>Research &middot; Synthesis &middot; Review</div>
+        </div>
+        <div class="arch-skills">
+          <div class="skill-chip"><span class="skill-chip-icon">🔍</span><span class="skill-chip-name">grounded-research-lit</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">🧠</span><span class="skill-chip-name">grounded-summary</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">✅</span><span class="skill-chip-name">grounded-review</span></div>
+          <div class="skill-chip"><span class="skill-chip-icon">🧬</span><span class="skill-chip-name">skill-evolve</span></div>
+        </div>
+      </div>
+
+      <div class="arch-row l3">
+        <div class="arch-meta">
+          <div class="arch-badge ab-violet">LAYER &middot; 3</div>
+          <div class="arch-title">Output Layer</div>
+          <div class="arch-sub">research_report.md &rarr; Multi-format export<br>md / pdf / pptx / docx / audio</div>
+        </div>
+        <div class="arch-skills">
+          <div class="skill-chip"><span class="skill-chip-icon">📤</span><span class="skill-chip-name">report-export</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><hr></div>
+
+<!-- ══════════════════════════════════════════
+     OUTPUT FORMATS
+══════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Export</p>
+    <h2>Multi-format <span class="dim">export</span> capability</h2>
+    <p class="lead">The final research report can be exported in five formats — one report for all delivery scenarios.</p>
+
+    <div class="out-grid">
+      <div class="out-card rv" style="position:relative; overflow:hidden;">
+        <span class="out-icon">📝</span>
+        <div class="out-name">Markdown</div>
+        <div class="out-ext" style="color:var(--gold);">.md</div>
+        <div class="out-desc">Plain text, best readability, ideal for version control</div>
+      </div>
+      <div class="out-card rv d1" style="position:relative; overflow:hidden;">
+        <span class="out-icon">📋</span>
+        <div class="out-name">Word</div>
+        <div class="out-ext" style="color:var(--teal);">.docx</div>
+        <div class="out-desc">DOCX format, full Word compatibility</div>
+      </div>
+      <div class="out-card rv d2" style="position:relative; overflow:hidden;">
+        <span class="out-icon">📑</span>
+        <div class="out-name">PDF</div>
+        <div class="out-ext" style="color:var(--rose);">.pdf</div>
+        <div class="out-desc">Generated via DOCX path for precise formatting</div>
+      </div>
+      <div class="out-card rv d3" style="position:relative; overflow:hidden;">
+        <span class="out-icon">🖼️</span>
+        <div class="out-name">PowerPoint</div>
+        <div class="out-ext" style="color:var(--violet);">.pptx</div>
+        <div class="out-desc">pptxgenjs auto-generates presentation decks</div>
+      </div>
+      <div class="out-card rv d4" style="position:relative; overflow:hidden;">
+        <span class="out-icon">🔊</span>
+        <div class="out-name">Audio</div>
+        <div class="out-ext" style="color:var(--ink-3);">.wav</div>
+        <div class="out-desc">Kokoro TTS voice narration, Chinese supported</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><hr></div>
+
+<!-- ══════════════════════════════════════════
+     NEWS
+══════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">News</p>
+    <h2>Release <span class="dim">log</span></h2>
+
+    <div class="news-list rv">
+      <div class="news-item">
+        <span class="news-date">2026/04/13</span>
+        <span class="news-text"><strong>Skill-Evolve officially released</strong>: OneResearchClaw now supports continuous skill-set evolution based on user feedback, saving personalized preferences as selectable derived versions.</span>
+        <span class="news-tag">NEW</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2026/04/12</span>
+        <span class="news-text"><strong>One-click cloud link ingestion</strong>: arXiv papers, YouTube and Bilibili videos — paste a link and the system automatically downloads and starts the research workflow.</span>
+        <span class="news-tag">NEW</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2026/04/11</span>
+        <span class="news-text"><strong>Multi-model review mechanism</strong>: The Review &rarr; Rewrite loop supports bounded iterative revision, significantly improving final deliverable quality.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2026/04/09</span>
+        <span class="news-text"><strong>Controllable research depth</strong>: Choose from simple / medium / complex modes. Literature search scope, source opening, and research cost are easier to control.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2026/04/08</span>
+        <span class="news-text"><strong>Multi-topic parallel execution</strong>: The system automatically identifies multiple topics in meetings and generates independent reports, fully preserving every discussion thread.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2026/04/05</span>
+        <span class="news-text"><strong>OneResearchClaw released</strong>: Multi-format input &rarr; automated research report generation. Everything is one command away, no manual handoffs required.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><hr></div>
+
+<!-- ══════════════════════════════════════════
+     SHOWCASE
+══════════════════════════════════════════ -->
+<section id="showcase">
+  <div class="wrap">
+    <p class="eyebrow">Showcase</p>
+    <h2>Representative <span class="dim">case studies</span></h2>
+    <p class="lead">Five real-world cases from raw input to final deliverable report — multi-topic splitting, controllable depth, review loops, and bilingual export.</p>
+
+    <div class="showcase-intro rv">
+      <div>
+        <h3>Generated Report Showcase</h3>
+        <p>
+          Five representative cases across meetings, documents, mixed archives, links, and review workflows.
+          Every case traces the full pipeline — input → grounded note → literature research → synthesis → review → export.
+        </p>
+      </div>
+      <div class="showcase-stats">
+        <div class="ss-item">
+          <span class="ss-n">5</span>
+          <div class="ss-l">Cases</div>
+        </div>
+        <div class="ss-item">
+          <span class="ss-n">6+</span>
+          <div class="ss-l">Input Types</div>
+        </div>
+        <div class="ss-item">
+          <span class="ss-n">5</span>
+          <div class="ss-l">Export Formats</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-grid">
+
+      <!-- Case 01 -->
+      <div class="case-card rv">
+        <div class="case-header">
+          <span class="case-num">01</span>
+          <div class="case-meta">
+            <div class="case-type ct-gold">Meeting Transcript</div>
+            <div class="case-title">Meeting Minutes &rarr; Multi-Topic Reports</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-desc">
+            A research group meeting with two independent topics — Egocentric Video Understanding and Long-Video Reasoning Evaluation — automatically split into two separate reports with clear boundaries.
+          </div>
+          <div class="case-features">
+            <span class="cf-tag">Multi-topic splitting</span>
+            <span class="cf-tag">Meeting grounding</span>
+            <span class="cf-tag">2 independent reports</span>
+            <span class="cf-tag">EN + ZH bilingual</span>
+          </div>
+          <div class="case-cta">
+            <a href="./docs/showcase/SHOWCASE.md#case-1--meeting-input---multi-topic-reports" class="case-link primary">
+              &#128196; View Full Case
+            </a>
+            <a href="./docs/showcase/reports/case1/meeting_meeting-case1_20260416004530_topic01/en/report.pdf" class="case-link">
+              &#128196; Topic01 EN PDF
+            </a>
+            <a href="./docs/showcase/reports/case1/meeting_meeting-case1_20260416004530_topic01/zh/report.pdf" class="case-link">
+              &#128196; Topic01 ZH PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 02 -->
+      <div class="case-card rv d1">
+        <div class="case-header">
+          <span class="case-num">02</span>
+          <div class="case-meta">
+            <div class="case-type ct-teal">arXiv Link</div>
+            <div class="case-title">arXiv Link &rarr; Grounded Research Report</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-desc">
+            A single arXiv paper ingested via URL — no manual download required. The system structures the paper, runs directed literature search, and generates a readable grounded report with bilingual output.
+          </div>
+          <div class="case-features">
+            <span class="cf-tag">arXiv URL ingestion</span>
+            <span class="cf-tag">Remote link grounding</span>
+            <span class="cf-tag">EN + ZH bilingual</span>
+          </div>
+          <div class="case-cta">
+            <a href="./docs/showcase/SHOWCASE.md#case-2--arxiv-link---grounded-report" class="case-link primary">
+              &#128196; View Full Case
+            </a>
+            <a href="./docs/showcase/reports/case2/pdf-2505.03123_20260415112502/en/report.pdf" class="case-link">
+              &#128196; EN PDF
+            </a>
+            <a href="./docs/showcase/reports/case2/pdf-2505.03123_20260415112502/zh/report.pdf" class="case-link">
+              &#128196; ZH PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 03 -->
+      <div class="case-card rv d2">
+        <div class="case-header">
+          <span class="case-num">03</span>
+          <div class="case-meta">
+            <div class="case-type ct-rose">YouTube Video</div>
+            <div class="case-title">Same Video &rarr; Three Research Depths</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-desc">
+            The same YouTube video run under simple / medium / complex modes — demonstrating how research_mode controls literature scope, opened sources, and report depth while keeping everything else constant.
+          </div>
+          <div class="case-features">
+            <span class="cf-tag">simple mode</span>
+            <span class="cf-tag">medium mode</span>
+            <span class="cf-tag">complex mode</span>
+            <span class="cf-tag">Depth comparison</span>
+          </div>
+          <div class="case-cta">
+            <a href="./docs/showcase/SHOWCASE.md#case-3--same-input-different-research-depths" class="case-link primary">
+              &#128196; View Full Case
+            </a>
+            <a href="./docs/showcase/reports/case3/simple/video-55_20260417134520/en/report.pdf" class="case-link">
+              &#128196; Simple EN
+            </a>
+            <a href="./docs/showcase/reports/case3/complex/video-55_20260416144423/en/report.pdf" class="case-link">
+              &#128196; Complex EN
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 04 -->
+      <div class="case-card rv d3">
+        <div class="case-header">
+          <span class="case-num">04</span>
+          <div class="case-meta">
+            <div class="case-type ct-violet">Review Loop</div>
+            <div class="case-title">Draft &rarr; Review &rarr; Rewrite &rarr; Pass</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-desc">
+            A draft report scored 60/100. After 4 rounds of Review &rarr; Rewrite — with explicit repair actions per round — the final report reached 91/100 and passed the quality gate before PPTX + DOCX export.
+          </div>
+          <div class="case-features">
+            <span class="cf-tag">4 review rounds</span>
+            <span class="cf-tag">60 &rarr; 91 score</span>
+            <span class="cf-tag">+31 improvement</span>
+            <span class="cf-tag">PPTX + DOCX export</span>
+          </div>
+          <div class="case-cta">
+            <a href="./docs/showcase/SHOWCASE.md#case-4--review--rewrite-for-better-deliverables" class="case-link primary">
+              &#128196; View Full Case
+            </a>
+            <a href="./docs/showcase/reports/case4/berfore_review/pdf-2506.10006v2before_20260416025902/en/report.pdf" class="case-link">
+              &#128196; Before Review
+            </a>
+            <a href="./docs/showcase/reports/case4/after_review/pdf-2506.10006v2_20260416025902/en/report.pdf" class="case-link">
+              &#128196; After Rewrite
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 05 -->
+      <div class="case-card rv d4">
+        <div class="case-header">
+          <span class="case-num">05</span>
+          <div class="case-meta">
+            <div class="case-type ct-gold">ZIP Archive</div>
+            <div class="case-title">Mixed Materials &rarr; Bilingual Final Delivery</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-desc">
+            A ZIP package with a PDF, two spreadsheets, and a PPTX on HER2 research. Each file is grounded in parallel, aggregated into a unified note, researched, reviewed, and exported as bilingual PDF.
+          </div>
+          <div class="case-features">
+            <span class="cf-tag">Archive grounding</span>
+            <span class="cf-tag">Multi-format parallel</span>
+            <span class="cf-tag">Cross-file synthesis</span>
+            <span class="cf-tag">EN + ZH PDF</span>
+          </div>
+          <div class="case-cta">
+            <a href="./docs/showcase/SHOWCASE.md#case-5--mixed-materials---bilingual-final-delivery" class="case-link primary">
+              &#128196; View Full Case
+            </a>
+            <a href="./docs/showcase/reports/case5/archive-HER2-case5_20260415130231/en/report.pdf" class="case-link">
+              &#128196; EN PDF
+            </a>
+            <a href="./docs/showcase/reports/case5/archive-HER2-case5_20260415130231/zh/report.pdf" class="case-link">
+              &#128196; ZH PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top: 24px;">
+      <a href="./docs/showcase/SHOWCASE.md" class="case-link" style="font-size:11px; padding:8px 20px;">
+        &#8594; View Full Showcase &rarr;
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><hr></div>
+
+<!-- ══════════════════════════════════════════
+     QUICK START
+══════════════════════════════════════════ -->
+<section id="qs">
+  <div class="wrap">
+    <p class="eyebrow">Quick Start</p>
+    <h2>Get <span class="dim">started</span></h2>
+    <p class="lead">Three steps from raw input to complete research report.</p>
+
+    <div class="qs-grid rv">
+
+      <div class="code-block">
+        <div class="cb-header">
+          <span class="cb-title">one-report &middot; prompt example</span>
+          <div class="cb-dots">
+            <div class="cb-dot" style="background:#b8924a;"></div>
+            <div class="cb-dot" style="background:#2a9d8f;"></div>
+            <div class="cb-dot" style="background:#7c6eb0;"></div>
+          </div>
+        </div>
+<pre><span class="cmt"># Send this prompt to the Cursor Agent</span>
+
+<span class="kw">Please use</span> <span class="str">.cursor/skills/one-report/</span>
+<span class="kw">to generate a full report.</span>
+
+<span class="sym">Input:</span>
+  <span class="cmt">input_path:</span> <span class="str">docs/showcase/inputs/case5/HER2-case5.zip</span>
+  <span class="cmt">output_formats:</span> <span class="str">pdf</span>
+  <span class="cmt">research_mode:</span> <span class="str">complex</span>
+
+<span class="sym">Search settings:</span>
+  <span class="cmt">search_backend:</span>  <span class="str">cursor</span>
+  <span class="cmt">require_open_link:</span> <span class="num">true</span>
+  <span class="cmt">download_opened_literature:</span> <span class="num">true</span>
+
+<span class="sym">Optional:</span>
+  <span class="cmt">output_lang:</span> <span class="str">zh</span>
+  <span class="cmt">transcription_language:</span> <span class="str">zh</span></pre>
+      </div>
+
+      <div class="qs-steps">
+        <div class="qs-step">
+          <div class="qs-num">1</div>
+          <div>
+            <h4>Prepare your input file</h4>
+            <p>Place files in <span class="mono">data/raw_inputs/</span>. Supports audio, video, documents, spreadsheets, PPT, archives, or paste a link directly.</p>
+          </div>
+        </div>
+        <div class="qs-step">
+          <div class="qs-num">2</div>
+          <div>
+            <h4>Send prompt to Cursor Agent</h4>
+            <p>Read <span class="mono">.cursor/skills/one-report/SKILL.md</span> and fill in input_path, research_mode, and output_formats as shown.</p>
+          </div>
+        </div>
+        <div class="qs-step">
+          <div class="qs-num">3</div>
+          <div>
+            <h4>Wait for full pipeline execution</h4>
+            <p>Agent automatically runs grounding &rarr; research &rarr; summary &rarr; review &rarr; export end-to-end.</p>
+          </div>
+        </div>
+
+        <div class="qs-paths">
+          <div class="qs-paths-head">OUTPUT PATHS</div>
+          <div class="qs-path">data/grounded_notes/&lt;id&gt;/grounded.md</div>
+          <div class="qs-path">data/lit_results/&lt;id&gt;/lit.md</div>
+          <div class="qs-path">data/report_inputs/&lt;id&gt;/summary.md</div>
+          <div class="qs-path">data/reports/&lt;id&gt;/research_report.md</div>
+          <div class="qs-path hi">data/final_outputs/&lt;id&gt;/report.*</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-logo">
+    <span class="claw">🦞</span> <span><span class="gold">One</span>ResearchClaw</span>
+  </div>
+  <div class="footer-copy">Any Research. One Claw.</div>
+  <div class="footer-links">
+    <a href="#pipeline">Pipeline</a>
+    <a href="#formats">Formats</a>
+    <a href="#arch">Architecture</a>
+    <a href="#showcase">Showcase</a>
+    <a href="#qs">Quick Start</a>
+  </div>
+</footer>
+
+<script>
+  /* ── Scroll reveal ── */
+  const io = new IntersectionObserver(
+    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  /* ── Counter animation ── */
+  function animateCounter(el, target, duration = 1200) {
+    const start = performance.now();
+    const update = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(ease * target);
+      if (t < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+
+  const statsObserver = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) {
+        const target = parseInt(e.target.dataset.target);
+        animateCounter(e.target, target);
+        statsObserver.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.5 }
+  );
+  document.querySelectorAll('.hs-n[data-target]').forEach(el => statsObserver.observe(el));
+</script>
+
+</body>
+</html>
