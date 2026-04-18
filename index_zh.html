@@ -598,34 +598,6 @@
     .io-arrow-sym { color: var(--gold); font-size: 14px; }
 
     /* =========================================
-       INPUT FORMAT CARDS
-    ========================================= */
-    .fmt-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
-    }
-    .fmt-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 26px 24px;
-      transition: all .3s;
-    }
-    .fmt-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(184,146,74,.2);
-    }
-    .fmt-top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
-    .fmt-icon { font-size: 26px; display: block; flex-shrink: 0; }
-    .fmt-name {
-      font-family: var(--ff-serif); font-size: 16px; font-weight: 600;
-      color: var(--ink); letter-spacing: -.01em;
-    }
-    .fmt-out  { font-size: 11px; color: var(--ink-4); margin-top: 2px; font-style: italic; }
-    .fmt-exts { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
-    .fmt-desc { font-size: 12.5px; color: var(--ink-3); line-height: 1.7; }
-
-    /* =========================================
        ARCHITECTURE
     ========================================= */
     .arch-wrap {
@@ -633,6 +605,9 @@
       border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow-md);
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(6px) saturate(1.02);
+      -webkit-backdrop-filter: blur(6px) saturate(1.02);
     }
     .arch-row {
       display: grid; grid-template-columns: 200px 1fr;
@@ -682,99 +657,6 @@
     .arch-row.l1 { border-left: 3px solid var(--gold); }
     .arch-row.l2 { border-left: 3px solid var(--teal); }
     .arch-row.l3 { border-left: 3px solid var(--violet); }
-
-    /* =========================================
-       输出格式
-    ========================================= */
-    .out-grid {
-      display: grid; grid-template-columns: repeat(5,1fr); gap: 14px;
-    }
-    .out-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 24px 16px;
-      text-align: center; transition: all .3s;
-    }
-    .out-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-    .out-card::after {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-    }
-    .out-icon { font-size: 28px; display: block; margin-bottom: 10px; }
-    .out-name {
-      font-family: var(--ff-serif); font-size: 15px; font-weight: 600;
-      color: var(--ink); margin-bottom: 4px;
-    }
-    .out-ext { font-family: var(--ff-mono); font-size: 11px; margin-bottom: 6px; }
-    .out-desc { font-size: 11px; color: var(--ink-3); line-height: 1.5; }
-
-    /* =========================================
-       RESEARCH DEPTH
-    ========================================= */
-    .depth-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
-    }
-    .depth-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      transition: all .3s;
-    }
-    .depth-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-    .depth-mode {
-      font-family: var(--ff-mono); font-size: 9px;
-      text-transform: uppercase; letter-spacing: .12em;
-      margin-bottom: 12px; font-weight: 500;
-    }
-    .dm-s { color: var(--ink-4); }
-    .dm-m { color: var(--gold); }
-    .dm-c { color: var(--violet); }
-    .depth-name {
-      font-family: var(--ff-serif); font-size: 20px; font-weight: 600;
-      color: var(--ink); margin-bottom: 10px;
-    }
-    .depth-desc { font-size: 12.5px; color: var(--ink-3); line-height: 1.7; margin-bottom: 16px; }
-    .depth-meta { display: flex; flex-wrap: wrap; gap: 6px; }
-    .dm-tag {
-      font-family: var(--ff-mono); font-size: 10px;
-      padding: 3px 8px; border-radius: 5px;
-      background: var(--bg-muted); color: var(--ink-3);
-      border: 1px solid var(--border);
-    }
-
-    /* =========================================
-       REMOTE LINKS
-    ========================================= */
-    .link-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
-    }
-    .link-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 22px 24px;
-      transition: all .3s;
-      display: flex; align-items: center; gap: 16px;
-    }
-    .link-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(184,146,74,.2);
-    }
-    .link-icon { font-size: 26px; flex-shrink: 0; }
-    .link-name {
-      font-family: var(--ff-serif); font-size: 15px; font-weight: 600;
-      color: var(--ink); margin-bottom: 3px;
-    }
-    .link-desc { font-size: 11px; color: var(--ink-3); }
 
     /* =========================================
        NEWS
@@ -1410,7 +1292,6 @@
   </div>
   <ul class="nav-links">
     <li><a href="#pipeline">流程总览</a></li>
-    <li><a href="#formats">格式</a></li>
     <li><a href="#arch">架构设计</a></li>
     <li><a href="#showcase">案例展示</a></li>
     <li><a href="#qs">快速开始</a></li>
@@ -1708,196 +1589,6 @@
 <div class="sep"><hr></div>
 
 <!-- ══════════════════════════════════════════
-     RESEARCH DEPTH
-══════════════════════════════════════════ -->
-<section>
-  <div class="wrap">
-    <p class="eyebrow">Research Depth</p>
-    <h2>选择你的<span class="dim">Research 深度</span></h2>
-    <p class="lead">让 research 模式匹配任务需求，在覆盖度、成本与报告深度之间取得平衡。</p>
-
-    <div class="depth-grid">
-      <div class="depth-card rv">
-        <div class="depth-mode dm-s">模式 &middot; simple</div>
-        <div class="depth-name">快速概览</div>
-        <div class="depth-desc">快速了解背景并补充核心相关工作，适合轻量汇报或前期探索。</div>
-        <div class="depth-meta">
-          <span class="dm-tag">3&ndash;5 papers</span>
-          <span class="dm-tag">&ge;3 opened</span>
-          <span class="dm-tag">2 recent</span>
-        </div>
-      </div>
-      <div class="depth-card rv d1">
-        <div class="depth-mode dm-m">模式 &middot; medium</div>
-        <div class="depth-name">均衡研究</div>
-        <div class="depth-desc">兼顾覆盖度、成本和报告深度，适合作为多数任务的默认研究模式。</div>
-        <div class="depth-meta">
-          <span class="dm-tag">6&ndash;10 papers</span>
-          <span class="dm-tag">&ge;6 opened</span>
-          <span class="dm-tag">4 recent</span>
-        </div>
-      </div>
-      <div class="depth-card rv d2">
-        <div class="depth-mode dm-c">模式 &middot; complex</div>
-        <div class="depth-name">深度研究</div>
-        <div class="depth-desc">适用于跨领域、复杂问题或需要系统性 literature mapping 的任务，产出更深入的研究报告。</div>
-        <div class="depth-meta">
-          <span class="dm-tag">10&ndash;15 papers</span>
-          <span class="dm-tag">&ge;10 opened</span>
-          <span class="dm-tag">6 recent</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="sep"><hr></div>
-
-<!-- ══════════════════════════════════════════
-     输入格式
-══════════════════════════════════════════ -->
-<section id="formats">
-  <div class="wrap">
-    <p class="eyebrow">输入支持</p>
-    <h2>支持的<span class="dim">输入格式</span></h2>
-    <p class="lead">音频、视频、文档、表格、演示、压缩包与在线链接均可自动识别，并路由到合适的处理流程。</p>
-
-    <div class="fmt-grid">
-      <div class="fmt-card rv">
-        <div class="fmt-top">
-          <span class="fmt-icon">🎙️</span>
-          <div>
-            <div class="fmt-name">会议音频</div>
-            <div class="fmt-out">&rarr; 结构化会议笔记</div>
-          </div>
-        </div>
-        <div class="fmt-exts">
-          <span class="tag tg-gold">.mp3</span>
-          <span class="tag tg-gold">.wav</span>
-          <span class="tag tg-gold">.m4a</span>
-        </div>
-        <div class="fmt-desc">使用 WhisperX 进行语音识别和说话人分离，自动生成带说话人归属的 7 段式结构化笔记。</div>
-      </div>
-
-      <div class="fmt-card rv d1">
-        <div class="fmt-top">
-          <span class="fmt-icon">🎬</span>
-          <div>
-            <div class="fmt-name">会议视频</div>
-            <div class="fmt-out">&rarr; 结构化会议笔记</div>
-          </div>
-        </div>
-        <div class="fmt-exts">
-          <span class="tag tg-gold">.mp4</span>
-          <span class="tag tg-gold">.mov</span>
-          <span class="tag tg-gold">.mkv</span>
-        </div>
-        <div class="fmt-desc">使用 ffmpeg 提取音频流，再接入 meeting-audio-grounding 流程，生成完整结构化会议笔记。</div>
-      </div>
-
-      <div class="fmt-card rv d2">
-        <div class="fmt-top">
-          <span class="fmt-icon">📄</span>
-          <div>
-            <div class="fmt-name">文档材料</div>
-            <div class="fmt-out">&rarr; 结构化研究笔记</div>
-          </div>
-        </div>
-        <div class="fmt-exts">
-          <span class="tag tg-teal">.pdf</span>
-          <span class="tag tg-teal">.docx</span>
-          <span class="tag tg-teal">.md</span>
-          <span class="tag tg-teal">.txt</span>
-        </div>
-        <div class="fmt-desc">Docling 深度提取文本、表格、图像、公式与代码块，生成 8 段式结构化笔记。</div>
-      </div>
-
-      <div class="fmt-card rv">
-        <div class="fmt-top">
-          <span class="fmt-icon">📊</span>
-          <div>
-            <div class="fmt-name">表格数据</div>
-            <div class="fmt-out">&rarr; 数据分析笔记</div>
-          </div>
-        </div>
-        <div class="fmt-exts">
-          <span class="tag tg-teal">.xlsx</span>
-          <span class="tag tg-teal">.csv</span>
-        </div>
-        <div class="fmt-desc">提取字段结构、统计摘要、预览行，并自动生成可视化，识别异常值与数据质量问题。</div>
-      </div>
-
-      <div class="fmt-card rv d1">
-        <div class="fmt-top">
-          <span class="fmt-icon">📑</span>
-          <div>
-            <div class="fmt-name">演示文稿</div>
-            <div class="fmt-out">&rarr; 演示结构笔记</div>
-          </div>
-        </div>
-        <div class="fmt-exts">
-          <span class="tag tg-violet">.pptx</span>
-        </div>
-        <div class="fmt-desc">提取页面结构、标题、正文、图表、表格与备注，分析叙事脉络和关键信号。</div>
-      </div>
-
-      <div class="fmt-card rv d2">
-        <div class="fmt-top">
-          <span class="fmt-icon">📦</span>
-          <div>
-            <div class="fmt-name">压缩归档</div>
-            <div class="fmt-out">&rarr; 档案级汇总笔记</div>
-          </div>
-        </div>
-        <div class="fmt-exts">
-          <span class="tag tg-muted">.zip</span>
-        </div>
-        <div class="fmt-desc">解压并识别各子文件类型，并行调用相应 grounding skill，最后生成跨文件汇总笔记。</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="sep"><hr></div>
-
-<!-- ══════════════════════════════════════════
-     REMOTE LINKS
-══════════════════════════════════════════ -->
-<section>
-  <div class="wrap">
-    <p class="eyebrow">云端接入</p>
-    <h2>一键接入<span class="dim">云端链接</span></h2>
-    <p class="lead">支持 arXiv 论文、YouTube 和 Bilibili 视频，粘贴链接即可自动下载并进入研究流程。</p>
-
-    <div class="link-grid">
-      <div class="link-card rv">
-        <span class="link-icon">📄</span>
-        <div>
-          <div class="link-name">arXiv</div>
-          <div class="link-desc">arxiv.org/abs/... / pdf &rarr; 自动下载为 PDF</div>
-        </div>
-      </div>
-      <div class="link-card rv d1">
-        <span class="link-icon">🎬</span>
-        <div>
-          <div class="link-name">YouTube</div>
-          <div class="link-desc">youtube.com/watch, youtu.be &rarr; 自动下载为视频</div>
-        </div>
-      </div>
-      <div class="link-card rv d2">
-        <span class="link-icon">🎬</span>
-        <div>
-          <div class="link-name">Bilibili</div>
-          <div class="link-desc">BV... / av... / b23.tv &rarr; 自动下载为视频</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="sep"><hr></div>
-
-<!-- ══════════════════════════════════════════
      ARCHITECTURE
 ══════════════════════════════════════════ -->
 <section id="arch">
@@ -1950,52 +1641,6 @@
         <div class="arch-skills">
           <div class="skill-chip"><span class="skill-chip-icon">📤</span><span class="skill-chip-name">report-export</span></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="sep"><hr></div>
-
-<!-- ══════════════════════════════════════════
-     输出格式
-══════════════════════════════════════════ -->
-<section>
-  <div class="wrap">
-    <p class="eyebrow">导出</p>
-    <h2>多格式<span class="dim">导出</span>能力</h2>
-    <p class="lead">最终研究报告可导出为五种格式，一份报告覆盖多种交付场景。</p>
-
-    <div class="out-grid">
-      <div class="out-card rv" style="position:relative; overflow:hidden;">
-        <span class="out-icon">📝</span>
-        <div class="out-name">Markdown</div>
-        <div class="out-ext" style="color:var(--gold);">.md</div>
-        <div class="out-desc">纯文本格式，可读性高，适合版本管理</div>
-      </div>
-      <div class="out-card rv d1" style="position:relative; overflow:hidden;">
-        <span class="out-icon">📋</span>
-        <div class="out-name">Word 文档</div>
-        <div class="out-ext" style="color:var(--teal);">.docx</div>
-        <div class="out-desc">DOCX 格式，与 Word 文档 完整兼容</div>
-      </div>
-      <div class="out-card rv d2" style="position:relative; overflow:hidden;">
-        <span class="out-icon">📑</span>
-        <div class="out-name">PDF</div>
-        <div class="out-ext" style="color:var(--rose);">.pdf</div>
-        <div class="out-desc">通过 DOCX 路径生成，版式更稳定</div>
-      </div>
-      <div class="out-card rv d3" style="position:relative; overflow:hidden;">
-        <span class="out-icon">🖼️</span>
-        <div class="out-name">PowerPoint</div>
-        <div class="out-ext" style="color:var(--violet);">.pptx</div>
-        <div class="out-desc">使用 pptxgenjs 自动生成PPT / PPTX</div>
-      </div>
-      <div class="out-card rv d4" style="position:relative; overflow:hidden;">
-        <span class="out-icon">🔊</span>
-        <div class="out-name">音频</div>
-        <div class="out-ext" style="color:var(--ink-3);">.wav</div>
-        <div class="out-desc">Kokoro TTS 语音播报，支持中文</div>
       </div>
     </div>
   </div>
@@ -2388,7 +2033,6 @@
   <div class="footer-copy">Any Research. One Claw.</div>
   <div class="footer-links">
     <a href="#pipeline">流程总览</a>
-    <a href="#formats">格式</a>
     <a href="#arch">架构设计</a>
     <a href="#showcase">案例展示</a>
     <a href="#qs">快速开始</a>
