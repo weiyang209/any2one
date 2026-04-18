@@ -777,6 +777,9 @@
       transform: translateY(-3px);
       box-shadow: var(--shadow-lg);
     }
+    .case-card-wide {
+      grid-column: 1 / -1;
+    }
     .case-header {
       padding: 20px 24px 16px;
       border-bottom: 1px solid var(--border-soft);
@@ -814,6 +817,262 @@
       background: var(--bg-subtle); color: var(--ink-3);
       border: 1px solid var(--border);
     }
+
+    .case-spotlight {
+      margin-top: 26px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .case-spotlight-top {
+      padding: 22px 28px;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      background: linear-gradient(180deg, rgba(184,146,74,.06), rgba(184,146,74,.02));
+    }
+    .case-spotlight-kicker {
+      font-family: var(--ff-mono); font-size: 10px; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .case-spotlight-title {
+      font-family: var(--ff-serif); font-size: 26px; font-weight: 600;
+      color: var(--ink); line-height: 1.18;
+    }
+    .case-spotlight-sub {
+      font-size: 13px; color: var(--ink-3); margin-top: 8px; max-width: 760px;
+    }
+    .spotlight-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 7px 12px; border-radius: 999px;
+      background: var(--gold-g2); border: 1px solid rgba(184,146,74,.18);
+      font-family: var(--ff-mono); font-size: 10px; letter-spacing: .08em; color: var(--gold);
+      white-space: nowrap;
+    }
+    .case-spotlight-body {
+      padding: 28px;
+      display: grid; grid-template-columns: 360px 1fr; gap: 24px;
+    }
+    .spotlight-preview {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .spotlight-preview-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-subtle);
+      box-shadow: var(--shadow-xs);
+    }
+    .spotlight-preview-card img {
+      display: block; width: 100%; height: auto;
+    }
+    .spotlight-preview-note {
+      padding: 14px 16px;
+      font-size: 12.5px; color: var(--ink-3); line-height: 1.7;
+      border-top: 1px solid var(--border-soft);
+      background: var(--bg-card);
+    }
+    .spotlight-config {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .spotlight-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 10px; border-radius: 999px;
+      background: var(--bg-subtle); border: 1px solid var(--border);
+      font-family: var(--ff-mono); font-size: 10px; color: var(--ink-3);
+    }
+    .spotlight-content { display: flex; flex-direction: column; gap: 20px; }
+    .spotlight-block h4 {
+      font-family: var(--ff-serif); font-size: 18px; font-weight: 600; color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .spotlight-block p {
+      font-size: 13px; color: var(--ink-3); line-height: 1.8;
+    }
+    .spotlight-stages {
+      display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px;
+    }
+    .spot-stage {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-subtle);
+      padding: 14px 15px;
+      transition: all .25s;
+    }
+    .spot-stage:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+      border-color: rgba(184,146,74,.22);
+    }
+    .spot-stage-num {
+      font-family: var(--ff-mono); font-size: 9px; color: var(--gold);
+      letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .spot-stage-title {
+      font-family: var(--ff-serif); font-size: 16px; font-weight: 600; color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .spot-stage-desc {
+      font-size: 12.5px; color: var(--ink-3); line-height: 1.7;
+    }
+    .spotlight-links {
+      display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px;
+    }
+    .spot-link {
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      padding: 12px 14px;
+      transition: all .25s;
+    }
+    .spot-link:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+      border-color: rgba(184,146,74,.24);
+      background: var(--gold-g2);
+    }
+    .spot-link-k {
+      font-family: var(--ff-mono); font-size: 9px; color: var(--gold);
+      letter-spacing: .12em; text-transform: uppercase; margin-bottom: 5px;
+    }
+    .spot-link-v {
+      font-family: var(--ff-serif); font-size: 15px; font-weight: 600; color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .spot-link-d {
+      font-size: 12px; color: var(--ink-3); line-height: 1.6;
+    }
+
+    .case-input-row {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border-soft);
+      font-size: 11px;
+      color: var(--ink-3);
+      line-height: 1.7;
+    }
+    .case-input-row code {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      color: var(--gold);
+      background: var(--gold-g);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .qs-example {
+      margin-top: 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .qs-example-toggle {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 24px;
+      background: linear-gradient(180deg, rgba(184,146,74,.05), transparent);
+      border-bottom: 1px solid transparent;
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+    }
+    .qs-example-toggle::-webkit-details-marker { display: none; }
+    .qs-example-toggle-left h3 {
+      font-family: var(--ff-serif); font-size: 24px; font-weight: 600;
+      color: var(--ink); margin-bottom: 6px;
+    }
+    .qs-example-toggle-left p {
+      font-size: 13px; color: var(--ink-3); line-height: 1.75;
+      max-width: 760px;
+    }
+    .qs-example-toggle-right {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--ff-mono); font-size: 10px; color: var(--gold);
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 7px 12px; border-radius: 999px;
+      border: 1px solid rgba(184,146,74,.24); background: var(--bg-card);
+    }
+    .qs-example-toggle-right::before { content: '＋'; font-size: 13px; line-height: 1; }
+    .qs-example[open] .qs-example-toggle { border-bottom-color: var(--border-soft); }
+    .qs-example[open] .qs-example-toggle-right::before { content: '－'; }
+    .qs-example-body {
+      display:grid; grid-template-columns: 360px 1fr; gap: 0;
+    }
+    .qs-example-overview {
+      padding: 24px;
+      border-right: 1px solid var(--border-soft);
+      background: var(--bg-subtle);
+    }
+    .qs-example-overview h4 {
+      font-family: var(--ff-serif); font-size: 20px; font-weight: 600;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .qs-example-overview p {
+      font-size: 12.5px; color: var(--ink-3); line-height: 1.8;
+    }
+    .qs-example-actions {
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top: 14px;
+    }
+    .mini-meta {
+      display:flex; flex-wrap:wrap; gap:8px; margin-top: 14px;
+    }
+    .mini-chip {
+      display:inline-flex; align-items:center;
+      font-family: var(--ff-mono); font-size: 10px;
+      color: var(--ink-3); background: #fff; border: 1px solid var(--border);
+      padding: 4px 8px; border-radius: 999px;
+    }
+    .qs-example-detail {
+      padding: 24px 24px 26px;
+    }
+    .qs-example-grid {
+      display:grid; grid-template-columns: repeat(2,1fr); gap: 14px;
+      margin-top: 18px;
+    }
+    .stage-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 16px 16px 14px;
+    }
+    .stage-card h4 {
+      font-family: var(--ff-serif); font-size: 16px; font-weight: 600;
+      color: var(--ink); margin-bottom: 6px;
+    }
+    .stage-card p {
+      font-size: 12px; color: var(--ink-3); line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .artifact-links {
+      display:flex; flex-wrap:wrap; gap: 6px;
+    }
+    .artifact-link {
+      display:inline-flex; align-items:center; gap:5px;
+      font-family: var(--ff-mono); font-size: 10px; letter-spacing: .03em;
+      color: var(--ink-3); background: var(--bg-subtle); border: 1px solid var(--border);
+      padding: 4px 8px; border-radius: 6px;
+      transition: all .2s;
+    }
+    .artifact-link:hover {
+      color: var(--gold); background: var(--gold-g2); border-color: rgba(184,146,74,.25);
+    }
+    .stage-card.stage-full {
+      grid-column: 1 / -1;
+    }
+    @media (max-width: 960px) {
+      .qs-example-body { grid-template-columns: 1fr; }
+      .qs-example-overview { border-right: none; border-bottom: 1px solid var(--border-soft); }
+      .qs-example-grid { grid-template-columns: 1fr; }
+      .qs-example-toggle { flex-direction: column; align-items: flex-start; }
+      .case-grid { grid-template-columns: 1fr; }
+      .feat-grid, .fmt-grid, .link-grid, .out-grid, .depth-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .feat-grid, .fmt-grid, .link-grid, .out-grid, .depth-grid { grid-template-columns: 1fr; }
+    }
+
 
     /* =========================================
        QUICK START
@@ -950,6 +1209,19 @@
     .rv.d3 { transition-delay: .26s; }
     .rv.d4 { transition-delay: .34s; }
     .rv.d5 { transition-delay: .42s; }
+
+    @media (max-width: 980px) {
+      .case-spotlight-body { grid-template-columns: 1fr; }
+      .spotlight-stages { grid-template-columns: 1fr; }
+      .spotlight-links { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 720px) {
+      .showcase-intro { grid-template-columns: 1fr; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-spotlight-top { flex-direction: column; align-items: flex-start; }
+      .spotlight-links { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -1496,14 +1768,13 @@
   <div class="wrap">
     <p class="eyebrow">案例展示</p>
     <h2>代表性<span class="dim">案例</span></h2>
-    <p class="lead">五个真实案例，展示从原始输入到最终可交付报告的完整路径，包括多主题拆分、深度可控、审阅循环与双语导出。</p>
 
     <div class="showcase-intro rv">
       <div>
-        <h3>报告生成案例集</h3>
+        <h3>5 个案例，对应 5 类能力验证</h3>
         <p>
-          五个代表性案例覆盖会议、文档、混合压缩包、链接输入与审阅工作流。
-          每个案例都展示完整路径：input → grounded note → literature research → synthesis → review → export。
+          从多 Topic 会议拆分，到链接接入、Research 深度控制、Review → Rewrite 闭环，再到 ZIP mixed-material package 的综合处理，
+          这 5 个案例覆盖了 OneResearchClaw 最核心的工作流能力。
         </p>
       </div>
       <div class="showcase-stats">
@@ -1516,184 +1787,148 @@
           <div class="ss-l">输入类型</div>
         </div>
         <div class="ss-item">
-          <span class="ss-n">5</span>
-          <div class="ss-l">导出格式</div>
+          <span class="ss-n">2</span>
+          <div class="ss-l">双语交付</div>
         </div>
       </div>
     </div>
 
     <div class="case-grid">
 
-      <!-- Case 01 -->
       <div class="case-card rv">
         <div class="case-header">
           <span class="case-num">01</span>
           <div class="case-meta">
             <div class="case-type ct-gold">会议转录</div>
-            <div class="case-title">会议纪要 &rarr; 多主题报告</div>
+            <div class="case-title">会议纪要 → Topic01 / Topic02 双报告</div>
           </div>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            一个研究组会议包含两个独立主题——Egocentric Video Understanding 与 Long-Video Reasoning Evaluation——系统自动拆分为两份边界清晰的独立报告。
+            一场组会自动拆分出两个独立主题，并分别生成独立报告。
           </div>
           <div class="case-features">
-            <span class="cf-tag">多主题拆分</span>
+            <span class="cf-tag">多 Topic 拆分</span>
             <span class="cf-tag">会议 grounding</span>
-            <span class="cf-tag">2 份独立报告</span>
-            <span class="cf-tag">中英双语</span>
+            <span class="cf-tag">2 个 topic</span>
+            <span class="cf-tag">双语 PDF</span>
           </div>
+          <div class="case-input-row">输入：<code>docs/showcase/inputs/case1/meeting-case1.txt</code></div>
           <div class="case-cta">
-            <a href="./docs/showcase/SHOWCASE.md#case-1--meeting-input---multi-topic-reports" class="case-link primary">
-              &#128196; 查看完整案例
-            </a>
-            <a href="./docs/showcase/reports/case1/meeting_meeting-case1_20260416004530_topic01/en/report.pdf" class="case-link">
-              &#128196; Topic01 英文 PDF
-            </a>
-            <a href="./docs/showcase/reports/case1/meeting_meeting-case1_20260416004530_topic01/zh/report.pdf" class="case-link">
-              &#128196; Topic01 中文 PDF
-            </a>
+            <a href="./docs/showcase/reports/case1/meeting_meeting-case1_20260416004530_topic01/en/report.pdf" class="case-link">📄 Topic01 EN PDF</a>
+            <a href="./docs/showcase/reports/case1/meeting_meeting-case1_20260416004530_topic01/zh/report.pdf" class="case-link">📄 Topic01 中文 PDF</a>
+            <a href="./docs/showcase/reports/case1/meeting_meeting-case1_20260416004530_topic02/en/report.pdf" class="case-link">📄 Topic02 EN PDF</a>
+            <a href="./docs/showcase/reports/case1/meeting_meeting-case1_20260416004530_topic02/zh/report.pdf" class="case-link">📄 Topic02 中文 PDF</a>
           </div>
         </div>
       </div>
 
-      <!-- Case 02 -->
       <div class="case-card rv d1">
         <div class="case-header">
           <span class="case-num">02</span>
           <div class="case-meta">
             <div class="case-type ct-teal">arXiv 链接</div>
-            <div class="case-title">arXiv 链接 &rarr; Grounded 研究报告</div>
+            <div class="case-title">单篇 arXiv 链接 → Grounded 研究报告</div>
           </div>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            单篇 arXiv 论文通过 URL 直接接入，无需手动下载。系统会自动结构化论文、进行定向文献检索，并生成可读性较强的 grounded 报告，支持双语输出。
+            从 URL 直接开始，无需手动下载。
           </div>
           <div class="case-features">
             <span class="cf-tag">arXiv URL 接入</span>
-            <span class="cf-tag">远程链接 grounding</span>
-            <span class="cf-tag">中英双语</span>
+            <span class="cf-tag">remote-input</span>
+            <span class="cf-tag">Grounded report</span>
+            <span class="cf-tag">双语 PDF</span>
           </div>
+          <div class="case-input-row">输入：<code>docs/showcase/inputs/case2/arxiv-case2.txt</code></div>
           <div class="case-cta">
-            <a href="./docs/showcase/SHOWCASE.md#case-2--arxiv-link---grounded-report" class="case-link primary">
-              &#128196; 查看完整案例
-            </a>
-            <a href="./docs/showcase/reports/case2/pdf-2505.03123_20260415112502/en/report.pdf" class="case-link">
-              &#128196; 英文 PDF
-            </a>
-            <a href="./docs/showcase/reports/case2/pdf-2505.03123_20260415112502/zh/report.pdf" class="case-link">
-              &#128196; 中文 PDF
-            </a>
+            <a href="./docs/showcase/reports/case2/pdf-2505.03123_20260415112502/en/report.pdf" class="case-link">📄 EN PDF</a>
+            <a href="./docs/showcase/reports/case2/pdf-2505.03123_20260415112502/zh/report.pdf" class="case-link">📄 中文 PDF</a>
           </div>
         </div>
       </div>
 
-      <!-- Case 03 -->
       <div class="case-card rv d2">
         <div class="case-header">
           <span class="case-num">03</span>
           <div class="case-meta">
             <div class="case-type ct-rose">YouTube 视频</div>
-            <div class="case-title">同一视频 &rarr; 三档调研深度</div>
+            <div class="case-title">同一视频 → Simple / Medium / Complex 三档对比</div>
           </div>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            同一个 YouTube 视频分别以 simple / medium / complex 模式运行，展示 research_mode 如何在其他条件不变时控制文献范围、打开来源数量和报告深度。
+            同一个输入，只调 research_mode。
           </div>
           <div class="case-features">
-            <span class="cf-tag">simple 模式</span>
-            <span class="cf-tag">medium 模式</span>
-            <span class="cf-tag">complex 模式</span>
+            <span class="cf-tag">research_mode</span>
+            <span class="cf-tag">Simple / Medium / Complex</span>
             <span class="cf-tag">深度对比</span>
           </div>
+          <div class="case-input-row">输入：<code>docs/showcase/inputs/case3/youtube.txt</code></div>
           <div class="case-cta">
-            <a href="./docs/showcase/SHOWCASE.md#case-3--same-input-different-research-depths" class="case-link primary">
-              &#128196; 查看完整案例
-            </a>
-            <a href="./docs/showcase/reports/case3/simple/video-55_20260417134520/en/report.pdf" class="case-link">
-              &#128196; Simple 英文版
-            </a>
-            <a href="./docs/showcase/reports/case3/complex/video-55_20260416144423/en/report.pdf" class="case-link">
-              &#128196; Complex 英文版
-            </a>
+            <a href="./docs/showcase/reports/case3/simple/video-55_20260417134520/en/report.pdf" class="case-link">📄 Simple EN</a>
+            <a href="./docs/showcase/reports/case3/medium/video-55_20260417145442/en/report.pdf" class="case-link">📄 Medium EN</a>
+            <a href="./docs/showcase/reports/case3/complex/video-55_20260416144423/en/report.pdf" class="case-link">📄 Complex EN</a>
           </div>
         </div>
       </div>
 
-      <!-- Case 04 -->
       <div class="case-card rv d3">
         <div class="case-header">
           <span class="case-num">04</span>
           <div class="case-meta">
-            <div class="case-type ct-violet">审阅循环</div>
-            <div class="case-title">草稿 &rarr; 审阅 &rarr; 重写 &rarr; 通过</div>
+            <div class="case-type ct-violet">Review 循环</div>
+            <div class="case-title">草稿 → Review → Rewrite → 通过</div>
           </div>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            一份草稿报告初始得分为 60/100。经过 4 轮明确修复动作驱动的 Review &rarr; Rewrite 后，最终报告提升至 91/100，并在导出 PPT/PPTXX + DOCX 前通过质量门槛。
+            强调质量提升闭环：一份初版报告经过多轮明确 repair actions 驱动的 rewrite，最终达到可交付状态。
           </div>
           <div class="case-features">
-            <span class="cf-tag">4 轮审阅</span>
-            <span class="cf-tag">60 &rarr; 91 分</span>
-            <span class="cf-tag">+31 分提升</span>
-            <span class="cf-tag">PPT/PPTXX + DOCX 导出</span>
+            <span class="cf-tag">4 轮 Review</span>
+            <span class="cf-tag">60 → 91</span>
+            <span class="cf-tag">质量门控</span>
+            <span class="cf-tag">交付前修订</span>
           </div>
+          <div class="case-input-row">输入：<code>docs/showcase/inputs/case4/2506.10006v2.pdf</code></div>
           <div class="case-cta">
-            <a href="./docs/showcase/SHOWCASE.md#case-4--review--rewrite-for-better-deliverables" class="case-link primary">
-              &#128196; 查看完整案例
-            </a>
-            <a href="./docs/showcase/reports/case4/berfore_review/pdf-2506.10006v2before_20260416025902/en/report.pdf" class="case-link">
-              &#128196; 审阅前
-            </a>
-            <a href="./docs/showcase/reports/case4/after_review/pdf-2506.10006v2_20260416025902/en/report.pdf" class="case-link">
-              &#128196; 重写后
-            </a>
+            <a href="./docs/showcase/reports/case4/berfore_review/pdf-2506.10006v2before_20260416025902/en/report.pdf" class="case-link">📄 审阅前 EN</a>
+            <a href="./docs/showcase/reports/case4/berfore_review/pdf-2506.10006v2before_20260416025902/zh/report.pdf" class="case-link">📄 审阅前 中文</a>
+            <a href="./docs/showcase/reports/case4/after_review/pdf-2506.10006v2_20260416025902/en/report.pdf" class="case-link">📄 审阅后 EN</a>
+            <a href="./docs/showcase/reports/case4/after_review/pdf-2506.10006v2_20260416025902/zh/report.pdf" class="case-link">📄 审阅后 中文</a>
           </div>
         </div>
       </div>
 
-      <!-- Case 05 -->
-      <div class="case-card rv d4">
+      <div class="case-card case-card-wide rv d4">
         <div class="case-header">
           <span class="case-num">05</span>
           <div class="case-meta">
-            <div class="case-type ct-gold">ZIP 压缩包</div>
-            <div class="case-title">混合材料 &rarr; 双语最终交付</div>
+            <div class="case-type ct-gold">ZIP 混合材料</div>
+            <div class="case-title">混合材料 → 双语最终交付</div>
           </div>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            一个关于 HER2 研究的 ZIP 压缩包，内含 PDF、两份表格和一份 PPT/PPTXX。每个文件会并行 grounding，再汇总为统一笔记，随后完成调研、审阅，并导出为双语 PDF。
+            一个 ZIP mixed-material package，里面同时有 PDF等多种文档。
           </div>
           <div class="case-features">
-            <span class="cf-tag">压缩包 grounding</span>
-            <span class="cf-tag">多格式并行</span>
+            <span class="cf-tag">ZIP mixed-material package</span>
+            <span class="cf-tag">archive-grounding</span>
             <span class="cf-tag">跨文件综合</span>
-            <span class="cf-tag">中英双语 PDF</span>
+            <span class="cf-tag">双语 PDF</span>
           </div>
+          <div class="case-input-row">输入：<code>docs/showcase/inputs/case5/HER2-case5.zip</code></div>
           <div class="case-cta">
-            <a href="./docs/showcase/SHOWCASE.md#case-5--mixed-materials---bilingual-final-delivery" class="case-link primary">
-              &#128196; 查看完整案例
-            </a>
-            <a href="./docs/showcase/reports/case5/archive-HER2-case5_20260415130231/en/report.pdf" class="case-link">
-              &#128196; 英文 PDF
-            </a>
-            <a href="./docs/showcase/reports/case5/archive-HER2-case5_20260415130231/zh/report.pdf" class="case-link">
-              &#128196; 中文 PDF
-            </a>
+            <a href="./docs/showcase/reports/case5/archive-HER2-case5_20260415130231/en/report.pdf" class="case-link">📄 EN PDF</a>
+            <a href="./docs/showcase/reports/case5/archive-HER2-case5_20260415130231/zh/report.pdf" class="case-link">📄 中文 PDF</a>
           </div>
         </div>
       </div>
 
-    </div>
-
-    <div style="text-align:center; margin-top: 24px;">
-      <a href="./docs/showcase/SHOWCASE.md" class="case-link" style="font-size:11px; padding:8px 20px;">
-        &#8594; 查看完整案例集 &rarr;
-      </a>
     </div>
   </div>
 </section>
@@ -1775,6 +2010,120 @@
     </div>
   </div>
 </section>
+
+<div class="sep"><hr></div>
+
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Quick Start Example</p>
+    <h2>用 <span class="dim">Case 5</span> 执行一遍完整 one-report 流程</h2>
+
+    <details class="qs-example rv">
+      <summary class="qs-example-toggle">
+        <div class="qs-example-toggle-left">
+          <h3>Case 5 · 综合材料 → 双语最终交付</h3>
+          <p>点击展开，查看从 <span class="mono">HER2-case5.zip</span> 到最终中文 / 英文 PDF 的完整 artifact 链与各阶段中间产物。</p>
+        </div>
+        <span class="qs-example-toggle-right">展开示例</span>
+      </summary>
+
+      <div class="qs-example-body">
+        <div class="qs-example-overview">
+          <h4>运行配置概览</h4>
+          <p>
+            这是 Quick Start 的真实运行结果：输入是 <span class="mono">HER2-case5.zip</span>，Research 模式为 <span class="mono">complex</span>，检索 backend 为 <span class="mono">cursor</span>，并开启 <span class="mono">require_open_link: true</span> 与 <span class="mono">download_opened_literature: true</span>。
+          </p>
+          <div class="mini-meta">
+            <span class="mini-chip">输入：ZIP mixed-material package</span>
+            <span class="mini-chip">Research：complex</span>
+            <span class="mini-chip">Backend：cursor</span>
+            <span class="mini-chip">打开来源：true</span>
+            <span class="mini-chip">下载文献：true</span>
+            <span class="mini-chip">输出：中文 / 英文 PDF</span>
+          </div>
+          <div class="qs-example-actions">
+            <a href="./docs/showcase/inputs/case5/HER2-case5.zip" class="case-link">📥 输入 ZIP</a>
+            <a href="./docs/showcase/reports/case5/archive-HER2-case5_20260415130231/zh/report.pdf" class="case-link primary">📄 中文 PDF</a>
+            <a href="./docs/showcase/reports/case5/archive-HER2-case5_20260415130231/en/report.pdf" class="case-link">📄 EN PDF</a>
+          </div>
+        </div>
+
+        <div class="qs-example-detail">
+
+          <div class="qs-example-grid">
+            <div class="stage-card">
+              <h4>1. Input Routing</h4>
+              <p>识别输入是 ZIP 混合材料包，并记录内部文件如何分发到不同 grounding skills。</p>
+              <div class="artifact-links">
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/grounded_notes/archive-HER2-case5_20260415130231/manifest.json">manifest.json</a>
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/grounded_notes/archive-HER2-case5_20260415130231/routed_items.json">routed_items.json</a>
+              </div>
+            </div>
+
+            <div class="stage-card">
+              <h4>2. Grounding</h4>
+              <p>将 ZIP 内部多种材料统一转成后续 research / summary / review 阶段可用的结构化内容。</p>
+              <div class="artifact-links">
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/grounded_notes/archive-HER2-case5_20260415130231/grounded.md">grounded.md</a>
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/grounded_notes/archive-HER2-case5_20260415130231/child_outputs/">child_outputs/</a>
+              </div>
+            </div>
+
+            <div class="stage-card">
+              <h4>3. Query Generation</h4>
+              <p>先基于 grounded note 生成候选 query，再确认后进入正式检索，减少无关搜索与 token 浪费。</p>
+              <div class="artifact-links">
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/lit_inputs/archive-HER2-case5_20260415130231/queries.json">queries.json</a>
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/lit_inputs/archive-HER2-case5_20260415130231/queries_confirmed.json">queries_confirmed.json</a>
+              </div>
+            </div>
+
+            <div class="stage-card">
+              <h4>4. Literature Research</h4>
+              <p>在 complex 模式下打开来源、保存证据、整理 paper notes，并生成更扎实的 lit.md。</p>
+              <div class="artifact-links">
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/lit_inputs/archive-HER2-case5_20260415130231/search_results.json">search_results.json</a>
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/lit_inputs/archive-HER2-case5_20260415130231/opened_sources/">opened_sources/</a>
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/lit_results/archive-HER2-case5_20260415130231/lit.md">lit.md</a>
+              </div>
+            </div>
+
+            <div class="stage-card">
+              <h4>5. Summary</h4>
+              <p>整合 grounded note 与 literature result，形成结构化 summary，而不是简单压缩成几条摘要。</p>
+              <div class="artifact-links">
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/report_inputs/archive-HER2-case5_20260415130231/summary.md">summary.md</a>
+              </div>
+            </div>
+
+            <div class="stage-card">
+              <h4>6. Review → Rewrite</h4>
+              <p>围绕 coverage、evidence specificity、analytical depth 与 deliverability 做有限轮修订。</p>
+              <div class="artifact-links">
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/review_outputs/archive-HER2-case5_20260415130231/review_history.json">review_history.json</a>
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/review_outputs/archive-HER2-case5_20260415130231/round_0/">round_0/</a>
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/review_outputs/archive-HER2-case5_20260415130231/round_1/">round_1/</a>
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/review_outputs/archive-HER2-case5_20260415130231/round_2/">round_2/</a>
+              </div>
+            </div>
+
+            <div class="stage-card stage-full">
+              <h4>7. Final Export</h4>
+              <p>当 review 通过后，最终报告写入 research_report.md，并导出为中文 / 英文 PDF。这样用户既能看最终交付物，也能回溯整条 artifact 链。</p>
+              <div class="artifact-links">
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/reports/archive-HER2-case5_20260415130231/research_report.md">research_report.md</a>
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/final_outputs/archive-HER2-case5_20260415130231/zh/report.pdf">zh/report.pdf</a>
+                <a class="artifact-link" href="./docs/showcase/reports/readme_case/final_outputs/archive-HER2-case5_20260415130231/en/report.pdf">en/report.pdf</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
 
 <!-- ══════════════════════════════════════════
      FOOTER
