@@ -479,11 +479,13 @@
        PIPELINE
     ========================================= */
     .pipeline-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
+    background: rgba(255,255,255,.08);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(6px) saturate(1.02);
+    -webkit-backdrop-filter: blur(6px) saturate(1.02);
     }
 
     .pipe-bar {
@@ -1619,7 +1621,7 @@
   <div class="wrap">
     <p class="eyebrow">Pipeline</p>
     <h2>端到端<span class="dim">自动化</span>流程</h2>
-    <p class="lead">从原始输入到可交付 research report，全流程自动化，无需人工接力。</p>
+    <p class="lead">从原始输入到可交付 research report，全流程自动化。</p>
 
     <div class="pipeline-card rv">
       <div class="pipe-bar">
