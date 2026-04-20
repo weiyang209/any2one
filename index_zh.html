@@ -79,50 +79,6 @@
       --shadow-theme-menu: 0 18px 48px rgba(26,24,21,.14);
     }
 
-    body[data-theme="light"] {
-      color-scheme: light;
-      --bg:           #ffffff;
-      --bg-card:      #ffffff;
-      --bg-subtle:    #f7f7f5;
-      --bg-muted:     #efefeb;
-
-      --ink:          #161513;
-      --ink-2:        #44413c;
-      --ink-3:        #78736c;
-      --ink-4:        #b1aca3;
-
-      --gold-g:       rgba(184,146,74,.06);
-      --gold-g2:      rgba(184,146,74,.10);
-      --teal-g:       rgba(42,157,143,.06);
-      --rose-g:       rgba(192,98,90,.06);
-      --violet-g:     rgba(124,110,176,.06);
-
-      --border:       #e8e4dd;
-      --border-soft:  #f0ece5;
-
-      --nav-bg: rgba(255,255,255,.88);
-      --panel-glass: rgba(255,255,255,.76);
-      --grid-line: rgba(184,146,74,.035);
-      --bg-glow-top: rgba(184,146,74,.035);
-      --bg-glow-bottom: rgba(124,110,176,.025);
-      --theme-btn-bg: rgba(255,255,255,.94);
-      --theme-btn-hover: rgba(184,146,74,.08);
-      --theme-btn-border: rgba(184,146,74,.18);
-      --theme-btn-active-bg: rgba(184,146,74,.11);
-      --theme-btn-active-border: rgba(184,146,74,.28);
-      --github-bg: rgba(184,146,74,.08);
-      --github-hover-bg: rgba(184,146,74,.14);
-      --github-text: var(--ink);
-      --github-border: rgba(184,146,74,.18);
-      --github-shadow: 0 10px 24px rgba(184,146,74,.08);
-      --github-shadow-hover: 0 14px 28px rgba(184,146,74,.12);
-      --code-bg: #181715;
-      --code-title: rgba(255,255,255,.30);
-      --code-pre: #b8b0a7;
-      --code-border: rgba(255,255,255,.06);
-      --shadow-theme-menu: 0 18px 48px rgba(26,24,21,.10);
-    }
-
     body[data-theme="dark"] {
       color-scheme: dark;
       --bg:           #0d0d0f;
@@ -185,7 +141,7 @@
       background: var(--bg);
       color: var(--ink);
       font-family: var(--ff-sans);
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.75;
       overflow-x: hidden;
       transition: background-color .28s ease, color .28s ease;
@@ -233,16 +189,22 @@
       transition: background-color .28s ease, border-color .28s ease;
     }
     .nav-logo {
-      display: flex; align-items: center; gap: 3px;
+      display: flex; align-items: center; gap: 9px;
       font-family: var(--ff-serif); font-size: 18px;
       font-weight: 600; color: var(--ink);
       letter-spacing: -.01em;
+    }
+    .nav-logo-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+      flex-shrink: 0;
     }
     .nav-logo .claw { font-size: 22px; }
     .nav-logo .gold { color: var(--gold); }
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
-      font-size: 11px; font-weight: 500; color: var(--ink-3);
+      font-size: 12px; font-weight: 500; color: var(--ink-3);
       letter-spacing: .06em; text-transform: uppercase;
       transition: color .2s;
     }
@@ -341,7 +303,7 @@
       border-radius: 999px;
       background: var(--bg-card);
       color: var(--gold);
-      font-family: var(--ff-mono); font-size: 10px; font-weight: 500;
+      font-family: var(--ff-mono); font-size: 11px; font-weight: 500;
       letter-spacing: .1em; text-transform: uppercase;
       box-shadow: var(--shadow-xs);
       transition: all .2s ease;
@@ -365,7 +327,7 @@
 
     .eyebrow {
       display: inline-flex; align-items: center; gap: 12px;
-      font-family: var(--ff-mono); font-size: 10px; font-weight: 500;
+      font-family: var(--ff-mono); font-size: 11px; font-weight: 500;
       color: var(--gold); letter-spacing: .2em; text-transform: uppercase;
       margin-bottom: 18px;
     }
@@ -406,7 +368,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 150px 64px 36px;
+      padding: 112px 64px 14px;
       overflow: hidden;
     }
 
@@ -434,7 +396,7 @@
       background: var(--gold-g2);
       border: 1px solid rgba(184,146,74,.2);
       color: var(--gold);
-      font-family: var(--ff-mono); font-size: 10px;
+      font-family: var(--ff-mono); font-size: 11px;
       letter-spacing: .14em; text-transform: uppercase;
       padding: 5px 14px; border-radius: 100px;
       margin-bottom: 32px;
@@ -466,7 +428,7 @@
       align-items: center;
       justify-content: center;
       gap: 16px;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
       animation: fadeUp .8s .08s ease both;
     }
 
@@ -475,6 +437,13 @@
       height: clamp(56px, 8vw, 90px);
       display: block;
       flex-shrink: 0;
+    }
+
+    .hero-logo-banner {
+      display: block;
+      width: min(962px, 100%);
+      height: auto;
+      margin: 0 auto;
     }
 
     .hero-title-brand {
@@ -499,20 +468,20 @@
     .hero-title .t-dim { color: var(--ink-4); }
 
     .hero-sub {
-      font-size: clamp(13px, 1.8vw, 17px); font-weight: 300;
+      font-size: clamp(14px, 1.95vw, 18px); font-weight: 300;
       color: var(--ink-3); letter-spacing: .03em;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       animation: fadeUp .8s .2s ease both;
     }
     .hero-sub.en-copy {
       font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: clamp(12px, 1.65vw, 16px);
+      font-size: clamp(13px, 1.75vw, 17px);
       font-weight: 300;
       letter-spacing: .02em;
     }
     .hero-desc {
-      font-size: 15px; color: var(--ink-3);
-      max-width: 480px; margin: 0 auto 40px;
+      font-size: 16px; color: var(--ink-3);
+      max-width: 480px; margin: 0 auto 18px;
       line-height: 1.85;
       animation: fadeUp .8s .3s ease both;
     }
@@ -525,7 +494,7 @@
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 9px;
       padding: 11px 24px; border-radius: var(--radius-md);
-      font-family: var(--ff-sans); font-size: 13px; font-weight: 500;
+      font-family: var(--ff-sans); font-size: 14px; font-weight: 500;
       cursor: pointer; border: none; transition: all .25s;
     }
     .btn-icon {
@@ -691,7 +660,7 @@
     }
 
     .feat-desc {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--ink-3);
     line-height: 1.82;
     }
@@ -800,11 +769,11 @@
       50% { box-shadow: 0 0 14px rgba(184,146,74,.6); }
     }
     .pipe-bar-title {
-      font-family: var(--ff-mono); font-size: 10px;
+      font-family: var(--ff-mono); font-size: 11px;
       color: var(--ink-4); letter-spacing: .1em;
     }
     .pipe-bar-hint {
-      font-family: var(--ff-mono); font-size: 10px;
+      font-family: var(--ff-mono); font-size: 11px;
       color: var(--gold); letter-spacing: .08em;
       padding: 6px 10px;
       border-radius: 999px;
@@ -888,7 +857,7 @@
       color: var(--ink); margin-bottom: 6px;
       transition: color .22s ease;
     }
-    .ps-sub { font-size: 11px; color: var(--ink-3); line-height: 1.6; transition: color .22s ease; }
+    .ps-sub { font-size: 12px; color: var(--ink-3); line-height: 1.6; transition: color .22s ease; }
 
     .ps:hover .ps-icon,
     .ps.is-hover .ps-icon,
@@ -940,7 +909,7 @@
     }
     .pipe-detail-kicker {
       font-family: var(--ff-mono);
-      font-size: 10px;
+      font-size: 11px;
       color: var(--gold);
       letter-spacing: .12em;
       text-transform: uppercase;
@@ -974,7 +943,7 @@
       border: 1px solid rgba(184,146,74,.18);
       background: rgba(184,146,74,.08);
       font-family: var(--ff-mono);
-      font-size: 10px;
+      font-size: 11px;
       color: var(--gold);
       letter-spacing: .04em;
     }
@@ -991,7 +960,7 @@
     }
     .pipe-detail-block-head {
       font-family: var(--ff-mono);
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--gold);
@@ -1011,7 +980,7 @@
       background: var(--bg-subtle);
       border: 1px solid var(--border);
       font-family: var(--ff-mono);
-      font-size: 10px;
+      font-size: 11px;
       color: var(--ink-3);
       white-space: nowrap;
     }
@@ -1023,12 +992,12 @@
       align-items: center;
     }
     .pipe-io-head {
-      font-family: var(--ff-mono); font-size: 9px;
+      font-family: var(--ff-mono); font-size: 10px;
       color: var(--ink-4); letter-spacing: .14em; margin-bottom: 10px;
     }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag {
-      font-family: var(--ff-mono); font-size: 11px; font-weight: 400;
+      font-family: var(--ff-mono); font-size: 12px; font-weight: 400;
       padding: 3px 9px; border-radius: 5px;
     }
     .tg-gold   { background: var(--gold-g2);  color: var(--gold);   border: 1px solid rgba(184,146,74,.15); }
@@ -1095,7 +1064,34 @@
       }
     }
 
-        /* =========================================
+    
+    .framework-preview-block {
+      position: relative;
+      z-index: 1;
+      padding: 6px 0 12px;
+    }
+
+    .framework-preview-figure {
+      margin: 0 auto;
+      max-width: 980px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      background: transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .framework-preview-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .framework-preview-actions {
+      margin-top: 20px;
+      margin-bottom: 4px;
+    }
+
+    /* =========================================
        NEWS
     ========================================= */
     .news-section {
@@ -1277,7 +1273,7 @@
       border: 1px solid rgba(184,146,74,.16);
       color: var(--gold);
       font-family: var(--ff-mono);
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: .1em;
       text-transform: uppercase;
       margin-bottom: 12px;
@@ -1285,7 +1281,7 @@
 
     .news-item-title {
       font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 600;
       color: var(--ink);
       line-height: 1.4;
@@ -1293,7 +1289,7 @@
     }
 
     .news-item-desc {
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.85;
       color: var(--ink-3);
     }
@@ -1397,7 +1393,7 @@
     ========================================= */
 
     .overview-section {
-      padding-top: 42px;
+      padding-top: 24px;
       padding-bottom: 88px;
     }
 
@@ -1545,7 +1541,7 @@
 
     @media (max-width: 640px) {
       .overview-section {
-        padding-top: 34px;
+        padding-top: 24px;
         padding-bottom: 78px;
       }
 
@@ -1722,7 +1718,7 @@
     }
     .case-proof-head {
       font-family: var(--ff-mono);
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--gold);
@@ -1747,14 +1743,14 @@
     }
     .case-fact-k {
       font-family: var(--ff-mono);
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 6px;
     }
     .case-fact-v {
-      font-size: 12.5px;
+      font-size: 13.5px;
       color: var(--ink-2);
       line-height: 1.72;
     }
@@ -1771,14 +1767,14 @@
     }
     .case-compare-k {
       font-family: var(--ff-mono);
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 7px;
     }
     .case-compare-v {
-      font-size: 12px;
+      font-size: 13.5px;
       color: var(--ink-2);
       line-height: 1.72;
     }
@@ -1841,7 +1837,7 @@
     }
     .case-meta {}
     .case-type {
-      font-family: var(--ff-mono); font-size: 9px;
+      font-family: var(--ff-mono); font-size: 10px;
       text-transform: uppercase; letter-spacing: .12em;
       margin-bottom: 3px;
     }
@@ -1855,7 +1851,7 @@
     }
     .case-body { padding: 16px 24px 20px; }
     .case-desc {
-      font-size: 12.5px; color: var(--ink-3); line-height: 1.7;
+      font-size: 14px; color: var(--ink-3); line-height: 1.8;
       margin-bottom: 14px;
     }
     .case-features {
@@ -2027,7 +2023,7 @@
       margin-top: 10px;
       padding-top: 10px;
       border-top: 1px dashed var(--border-soft);
-      font-size: 11px;
+      font-size: 12px;
       color: var(--ink-3);
       line-height: 1.7;
     }
@@ -2108,7 +2104,7 @@
     }
     .mini-chip {
     display:inline-flex; align-items:center;
-    font-family: var(--ff-mono); font-size: 10px;
+    font-family: var(--ff-mono); font-size: 11px;
     color: var(--ink-3); background: var(--bg-subtle); border: 1px solid var(--border);
     padding: 4px 8px; border-radius: 999px;
     }
@@ -2128,7 +2124,7 @@
       color: var(--ink); margin-bottom: 6px;
     }
     .stage-card p {
-      font-size: 12px; color: var(--ink-3); line-height: 1.7;
+      font-size: 13px; color: var(--ink-3); line-height: 1.7;
       margin-bottom: 10px;
     }
     .artifact-links {
@@ -2136,7 +2132,7 @@
     }
     .artifact-link {
     display:inline-flex; align-items:center; gap:5px;
-    font-family: var(--ff-mono); font-size: 10px; letter-spacing: .03em;
+    font-family: var(--ff-mono); font-size: 11px; letter-spacing: .03em;
     color: var(--gold);
     background: rgba(184,146,74,.08);
     border: 1px solid rgba(184,146,74,.24);
@@ -2264,7 +2260,7 @@
     .cb-dot  { width: 10px; height: 10px; border-radius: 50%; }
     pre {
       padding: 22px; font-family: var(--ff-mono);
-      font-size: 11.5px; line-height: 1.8; color: var(--code-pre);
+      font-size: 12.5px; line-height: 1.85; color: var(--code-pre);
       overflow-x: auto;
     }
     .kw  { color: var(--gold-l); }
@@ -2283,10 +2279,10 @@
       font-weight: 500; color: var(--gold);
     }
     .qs-step h4 {
-      font-family: var(--ff-serif); font-size: 15px; font-weight: 600;
+      font-family: var(--ff-serif); font-size: 16px; font-weight: 600;
       color: var(--ink); margin-bottom: 4px;
     }
-    .qs-step p { font-size: 12.5px; color: var(--ink-3); line-height: 1.65; }
+    .qs-step p { font-size: 13.5px; color: var(--ink-3); line-height: 1.75; }
     .mono { font-family: var(--ff-mono); font-size: 11px; color: var(--gold); }
 
     .qs-paths {
@@ -2294,11 +2290,11 @@
       border-radius: var(--radius-md); padding: 14px 18px; margin-top: 4px;
     }
     .qs-paths-head {
-      font-family: var(--ff-mono); font-size: 9px; color: var(--gold);
+      font-family: var(--ff-mono); font-size: 10px; color: var(--gold);
       letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px;
     }
     .qs-path {
-      font-family: var(--ff-mono); font-size: 11px;
+      font-family: var(--ff-mono); font-size: 12px;
       color: var(--ink-3); line-height: 1.9;
     }
     .qs-path.hi { color: var(--gold); }
@@ -2333,7 +2329,7 @@
       background: var(--gold-g);
       color: var(--gold);
       font-family: var(--ff-mono);
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: .08em;
       text-transform: uppercase;
       white-space: nowrap;
@@ -2472,8 +2468,8 @@
     .faq-answer {
       padding: 0 24px 24px;
       color: var(--ink-3);
-      font-size: 14px;
-      line-height: 1.88;
+      font-size: 15px;
+      line-height: 1.9;
       opacity: 0;
       transform: translateY(-8px);
       transition: opacity .28s ease, transform .36s cubic-bezier(.22, 1, .36, 1);
@@ -2632,6 +2628,219 @@
     }
 
 
+
+
+    /* =========================================
+       IN-PAGE PREVIEW DRAWER
+    ========================================= */
+    .preview-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 460;
+      background: rgba(26,24,21,.14);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .24s ease;
+    }
+
+    body.preview-open .preview-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .preview-panel {
+      position: fixed;
+      top: 84px;
+      right: 22px;
+      bottom: 22px;
+      width: min(46vw, 720px);
+      min-width: 360px;
+      z-index: 500;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      transform: translateX(calc(100% + 32px));
+      opacity: 0;
+      pointer-events: none;
+      transition: transform .32s ease, opacity .24s ease, background-color .28s ease, border-color .28s ease, box-shadow .28s ease;
+    }
+
+    body.preview-open .preview-panel {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .preview-panel-head {
+      padding: 16px 18px 14px;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      background: linear-gradient(180deg, rgba(184,146,74,.06), rgba(184,146,74,.02));
+    }
+
+    .preview-panel-meta {
+      min-width: 0;
+    }
+
+    .preview-panel-kicker {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .preview-panel-title {
+      font-family: var(--ff-serif);
+      font-size: 20px;
+      line-height: 1.24;
+      color: var(--ink);
+      word-break: break-word;
+    }
+
+    .preview-panel-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .preview-panel-link,
+    .preview-panel-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(184,146,74,.24);
+      background: rgba(184,146,74,.08);
+      color: var(--gold);
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: all .2s ease;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.45);
+    }
+
+    .preview-panel-link:hover,
+    .preview-panel-close:hover {
+      background: var(--gold);
+      color: #fff;
+      border-color: var(--gold);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 10px rgba(184,146,74,.22);
+    }
+
+    .preview-panel-close {
+      min-width: 34px;
+      padding: 0;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .preview-panel-status {
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border-soft);
+      background: var(--bg-subtle);
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: var(--ink-3);
+    }
+
+    .preview-panel-body {
+      flex: 1;
+      min-height: 0;
+      padding: 0 12px 12px;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-subtle) 100%);
+    }
+
+    .preview-frame {
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--border);
+      border-top: 0;
+      border-radius: 0 0 18px 18px;
+      display: block;
+      background: #fff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.30), 0 1px 0 rgba(184,146,74,.06);
+    }
+
+    .preview-text-wrap,
+    .preview-image-wrap,
+    .preview-empty,
+    .preview-loading,
+    .preview-error {
+      height: 100%;
+      overflow: auto;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-top: 0;
+      border-radius: 0 0 18px 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.30), 0 1px 0 rgba(184,146,74,.06);
+    }
+
+    .preview-text-wrap,
+    .preview-empty,
+    .preview-loading,
+    .preview-error {
+      background: var(--bg-card);
+    }
+
+    .preview-image-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: var(--bg-subtle);
+    }
+
+    .preview-text {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: var(--ff-mono);
+      font-size: 12.5px;
+      line-height: 1.78;
+      color: var(--ink-2);
+    }
+
+    .preview-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-xs);
+      background: var(--bg-card);
+    }
+
+    .preview-loading,
+    .preview-empty,
+    .preview-error {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--ink-3);
+    }
+
+    .artifact-link.is-preview-active,
+    .case-link.is-preview-active,
+    .spot-link.is-preview-active {
+      background: var(--gold);
+      color: #fff;
+      border-color: var(--gold);
+      box-shadow: 0 2px 10px rgba(184,146,74,.22);
+      transform: translateY(-1px);
+    }
+
     /* =========================================
        FOOTER
     ========================================= */
@@ -2642,14 +2851,21 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .footer-logo {
+      display: flex; align-items: center; gap: 9px;
       font-family: var(--ff-serif); font-size: 16px; font-weight: 600;
       color: var(--ink-2);
     }
+    .footer-logo-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+      flex-shrink: 0;
+    }
     .footer-logo .gold { color: var(--gold); }
-    .footer-copy { font-size: 12px; color: var(--ink-4); }
+    .footer-copy { font-size: 13px; color: var(--ink-4); }
     .footer-links { display: flex; gap: 24px; }
     .footer-links a {
-      font-family: var(--ff-mono); font-size: 10px; color: var(--ink-4);
+      font-family: var(--ff-mono); font-size: 11px; color: var(--ink-4);
       letter-spacing: .08em; transition: color .2s;
     }
     .footer-links a:hover { color: var(--gold); }
@@ -2707,6 +2923,33 @@
       transition: background-color .28s ease, color .28s ease, border-color .28s ease, box-shadow .28s ease, transform .22s ease;
     }
 
+    @media (max-width: 640px) {
+      .framework-preview-block {
+        padding: 4px 0 10px;
+      }
+
+      .framework-preview-figure {
+        border-radius: 20px;
+      }
+
+      .framework-preview-actions {
+        margin-top: 16px;
+      }
+
+      .preview-panel-body {
+        padding: 0 8px 8px;
+      }
+
+      .preview-frame,
+      .preview-text-wrap,
+      .preview-image-wrap,
+      .preview-empty,
+      .preview-loading,
+      .preview-error {
+        border-radius: 0 0 16px 16px;
+      }
+    }
+
     @media (max-width: 980px) {
       .case-spotlight-body { grid-template-columns: 1fr; }
       .spotlight-stages { grid-template-columns: 1fr; }
@@ -2730,6 +2973,41 @@
       .case-spotlight-top { flex-direction: column; align-items: flex-start; }
       .spotlight-links { grid-template-columns: 1fr; }
     }
+
+    @media (max-width: 960px) {
+      .preview-panel {
+        top: 82px;
+        right: 10px;
+        left: 10px;
+        bottom: 10px;
+        width: auto;
+        min-width: 0;
+        border-radius: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .preview-panel-head {
+        padding: 14px 14px 12px;
+      }
+
+      .preview-panel-title {
+        font-size: 17px;
+      }
+
+      .preview-panel-status {
+        padding: 9px 14px;
+      }
+
+      .preview-text-wrap,
+      .preview-image-wrap,
+      .preview-empty,
+      .preview-loading,
+      .preview-error {
+        padding: 14px;
+      }
+    }
+
 
     @media (max-width: 1100px) {
       nav {
@@ -2823,6 +3101,7 @@
 <!-- ── NAV ── -->
 <nav>
   <div class="nav-logo">
+    <img src="./docs/assets/icon.png" alt="" class="nav-logo-icon" aria-hidden="true">
     <span><span class="gold">One</span>ResearchClaw</span>
   </div>
   <ul class="nav-links">
@@ -2834,7 +3113,7 @@
   </ul>
   <div class="nav-actions">
     <div class="theme-switcher" id="themeSwitcher">
-      <button class="theme-toggle" id="themeCycleToggle" type="button" aria-label="切换到白色主题" title="切换到白色主题">
+      <button class="theme-toggle" id="themeCycleToggle" type="button" aria-label="当前为原色主题" title="当前为原色主题">
         <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
           <circle cx="12" cy="12" r="4.4" fill="currentColor"></circle>
           <path d="M12 2.8v2.3M12 18.9v2.3M21.2 12h-2.3M5.1 12H2.8M18.5 5.5l-1.6 1.6M7.1 16.9l-1.6 1.6M18.5 18.5l-1.6-1.6M7.1 7.1 5.5 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
@@ -2864,30 +3143,33 @@
   <div class="dot-grid"></div>
 
   <div class="hero-brand">
-    <img src="./docs/assets/icon.png" alt="OneResearchClaw icon" class="hero-brand-icon">
-    <h1 class="hero-title hero-title-brand en-display">
-      <span class="t-gold">One</span><span class="t-ink">ResearchClaw</span>
-    </h1>
+    <img src="./docs/assets/logo.png" alt="OneResearchClaw logo" class="hero-logo-banner">
   </div>
-  
-  <p class="hero-tagline en-copy">
-    Any Research. One Claw.
-  </p>
   
   <p class="hero-sub en-copy">
     Multi-Format Input &rarr; Structured Research Report Generation Pipeline
   </p>
 
   <p class="hero-desc">
-    从会议音视频、文档、表格、演示文稿，到 arXiv、YouTube、Bilibili 链接 —— <br>
+    从会议音视频、文档、表格、演示文稿，到云链接 —— <br>
     自动完成结构化整理、调研、审阅与导出。
   </p>
 
-  <div class="hero-btns">
-    <a href="#qs" class="btn btn-gold"><span class="btn-icon btn-icon-play" aria-hidden="true"></span><span>快速开始</span></a>
-    <a href="#showcase" class="btn btn-outline"><span class="btn-icon btn-icon-showcase" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><rect x="3.5" y="4.5" width="17" height="15" rx="2.6" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 9.5h17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10.5 9.7v9.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span>案例展示</span></a>
-  </div>
+
   
+</div>
+
+
+<div class="framework-preview-block rv">
+  <div class="wrap">
+    <figure class="framework-preview-figure">
+      <img src="./docs/assets/framework-v6.png" alt="OneResearchClaw framework overview diagram">
+    </figure>
+    <div class="framework-preview-actions hero-btns">
+      <a href="#qs" class="btn btn-gold"><span class="btn-icon btn-icon-play" aria-hidden="true"></span><span>快速开始</span></a>
+      <a href="#showcase" class="btn btn-outline"><span class="btn-icon btn-icon-showcase" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><rect x="3.5" y="4.5" width="17" height="15" rx="2.6" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 9.5h17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10.5 9.7v9.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span>案例展示</span></a>
+    </div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════════════
@@ -2967,37 +3249,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<div class="sep"><hr></div>
-
-<!-- ══════════════════════════════════════════
-     BRAND / FRAMEWORK OVERVIEW
-══════════════════════════════════════════ -->
-
-<section id="overview" class="overview-section">
-  <div class="wrap">
-    <div class="overview-logo-wrap rv">
-      <p class="eyebrow">Brand &amp; Framework</p>
-      <figure class="overview-logo-hero">
-        <img src="./docs/assets/logo.png" alt="OneResearchClaw logo">
-      </figure>
-    </div>
-
-    <div class="overview-framework-block rv d1">
-      <div class="overview-framework-head">
-        <div>
-          <div class="overview-kicker">System Overview</div>
-          <h3 class="overview-framework-title">OneResearchClaw Framework</h3>
-          <p class="overview-framework-copy">从真实材料输入，到多格式文件导出的整体链路。</p>
-        </div>
-      </div>
-
-      <figure class="overview-framework-figure">
-        <img src="./docs/assets/framework-v6.png" alt="OneResearchClaw framework overview diagram">
-      </figure>
     </div>
   </div>
 </section>
@@ -3792,8 +4043,28 @@
 <!-- ══════════════════════════════════════════
      FOOTER
 ══════════════════════════════════════════ -->
+
+<div class="preview-backdrop" id="previewBackdrop" aria-hidden="true"></div>
+<aside class="preview-panel" id="previewPanel" aria-hidden="true">
+  <div class="preview-panel-head">
+    <div class="preview-panel-meta">
+      <div class="preview-panel-kicker" id="previewKicker">文件预览</div>
+      <div class="preview-panel-title" id="previewTitle">未打开文件</div>
+    </div>
+    <div class="preview-panel-actions">
+      <a class="preview-panel-link" id="previewOpenLink" href="#" target="_blank" rel="noopener noreferrer" hidden>新标签打开</a>
+      <button class="preview-panel-close" id="previewCloseBtn" type="button" aria-label="关闭预览">×</button>
+    </div>
+  </div>
+  <div class="preview-panel-status" id="previewStatus">点击页面中的 PDF / md / json / txt 等展示文件，即可在当前页面右侧预览。</div>
+  <div class="preview-panel-body" id="previewBody">
+    <div class="preview-empty">当前还没有打开任何预览文件。</div>
+  </div>
+</aside>
+
 <footer>
   <div class="footer-logo">
+    <img src="./docs/assets/icon.png" alt="" class="footer-logo-icon" aria-hidden="true">
     <span><span class="gold">One</span>ResearchClaw</span>
   </div>
   <div class="footer-copy">Any Research. One Claw.</div>
@@ -4105,20 +4376,230 @@
     });
   }
 
+  /* ── In-page file preview drawer ── */
+  const previewPanel = document.getElementById('previewPanel');
+  const previewBackdrop = document.getElementById('previewBackdrop');
+  const previewTitle = document.getElementById('previewTitle');
+  const previewKicker = document.getElementById('previewKicker');
+  const previewStatus = document.getElementById('previewStatus');
+  const previewBody = document.getElementById('previewBody');
+  const previewOpenLink = document.getElementById('previewOpenLink');
+  const previewCloseBtn = document.getElementById('previewCloseBtn');
+  const PREVIEWABLE_EXTENSIONS = ['pdf', 'md', 'json', 'txt', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'svg'];
+  const PREVIEW_LINK_SELECTOR = 'a.artifact-link[href], a.case-link[href], a.spot-link[href]';
+  let activePreviewUrl = null;
+  let activePreviewLink = null;
+  let previewRequestToken = 0;
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function getPreviewType(href) {
+    if (!href) return null;
+    const cleanHref = href.split('#')[0].split('?')[0].toLowerCase();
+    const match = cleanHref.match(/\.([a-z0-9]+)$/);
+    if (!match) return null;
+    return PREVIEWABLE_EXTENSIONS.includes(match[1]) ? match[1] : null;
+  }
+
+  function getDisplayFileName(href) {
+    if (!href) return '未命名文件';
+    const cleanHref = href.split('#')[0].split('?')[0];
+    const fileName = cleanHref.substring(cleanHref.lastIndexOf('/') + 1) || cleanHref;
+    try {
+      return decodeURIComponent(fileName);
+    } catch (err) {
+      return fileName;
+    }
+  }
+
+  function getPreviewLabel(type) {
+    if (!type) return '文件预览';
+    return `${type.toUpperCase()} 预览`;
+  }
+
+  function renderRawTextFrame(rawHref, fileName) {
+    if (!previewBody) return;
+    previewBody.innerHTML = `<iframe class="preview-frame" src="${escapeHtml(rawHref)}" title="${escapeHtml(fileName)}"></iframe>`;
+  }
+
+  function setActivePreviewLink(link) {
+    if (activePreviewLink && activePreviewLink !== link) {
+      activePreviewLink.classList.remove('is-preview-active');
+      activePreviewLink.setAttribute('aria-expanded', 'false');
+    }
+
+    activePreviewLink = link || null;
+
+    if (activePreviewLink) {
+      activePreviewLink.classList.add('is-preview-active');
+      activePreviewLink.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  function openPreviewPanel() {
+    body.classList.add('preview-open');
+    if (previewPanel) previewPanel.setAttribute('aria-hidden', 'false');
+    if (previewBackdrop) previewBackdrop.setAttribute('aria-hidden', 'false');
+  }
+
+  function closePreviewPanel() {
+    body.classList.remove('preview-open');
+    activePreviewUrl = null;
+    previewRequestToken += 1;
+
+    if (previewPanel) previewPanel.setAttribute('aria-hidden', 'true');
+    if (previewBackdrop) previewBackdrop.setAttribute('aria-hidden', 'true');
+    if (previewTitle) previewTitle.textContent = '未打开文件';
+    if (previewKicker) previewKicker.textContent = '文件预览';
+    if (previewStatus) previewStatus.textContent = '点击页面中的 PDF / md / json / txt 等展示文件，即可在当前页面右侧预览。';
+    if (previewBody) previewBody.innerHTML = '<div class="preview-empty">当前还没有打开任何预览文件。</div>';
+    if (previewOpenLink) {
+      previewOpenLink.hidden = true;
+      previewOpenLink.removeAttribute('href');
+    }
+
+    if (activePreviewLink) {
+      activePreviewLink.classList.remove('is-preview-active');
+      activePreviewLink.setAttribute('aria-expanded', 'false');
+      activePreviewLink = null;
+    }
+  }
+
+  async function renderPreviewContent(link, type, absoluteUrl, rawHref) {
+    const requestToken = ++previewRequestToken;
+    const fileName = getDisplayFileName(rawHref);
+    const isLocalFilePreview = window.location.protocol === 'file:';
+
+    if (previewTitle) previewTitle.textContent = fileName;
+    if (previewKicker) previewKicker.textContent = getPreviewLabel(type);
+    if (previewStatus) {
+      previewStatus.textContent = type === 'md'
+        ? '当前为 Markdown 预览。'
+        : type === 'json'
+          ? '当前为 JSON 预览。'
+          : `当前为 ${type.toUpperCase()} 文件预览。`;
+    }
+    if (previewOpenLink) {
+      previewOpenLink.hidden = false;
+      previewOpenLink.href = rawHref;
+    }
+
+    openPreviewPanel();
+    setActivePreviewLink(link);
+    activePreviewUrl = absoluteUrl;
+
+    if (!previewBody) return;
+
+    previewBody.innerHTML = '<div class="preview-loading">正在加载预览…</div>';
+
+    try {
+      if (type === 'pdf') {
+        previewBody.innerHTML = `<iframe class="preview-frame" src="${escapeHtml(rawHref)}#view=FitH" title="${escapeHtml(fileName)}"></iframe>`;
+        return;
+      }
+
+      if (['png', 'jpg', 'jpeg', 'webp', 'gif', 'svg'].includes(type)) {
+        previewBody.innerHTML = `<div class="preview-image-wrap"><img class="preview-image" src="${escapeHtml(rawHref)}" alt="${escapeHtml(fileName)}"></div>`;
+        return;
+      }
+
+      if (isLocalFilePreview && ['md', 'json', 'txt', 'html'].includes(type)) {
+        if (previewStatus) {
+          previewStatus.textContent = type === 'json'
+            ? '当前为 JSON 原始预览。'
+            : '当前为文本原始预览。';
+        }
+        renderRawTextFrame(rawHref, fileName);
+        return;
+      }
+
+      const response = await fetch(absoluteUrl, { cache: 'no-store' });
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      let text = await response.text();
+      if (requestToken !== previewRequestToken) return;
+
+      if (type === 'json') {
+        try {
+          text = JSON.stringify(JSON.parse(text), null, 2);
+        } catch (err) {
+          // keep original text when JSON parsing fails
+        }
+      }
+
+      previewBody.innerHTML = `<div class="preview-text-wrap"><pre class="preview-text">${escapeHtml(text)}</pre></div>`;
+    } catch (error) {
+      if (requestToken !== previewRequestToken) return;
+
+      if (['md', 'json', 'txt', 'html'].includes(type)) {
+        if (previewStatus) {
+          previewStatus.textContent = type === 'json'
+            ? '当前为 JSON 原始预览。格式化读取失败时，已自动退回浏览器原始视图。'
+            : '当前为文本原始预览。脚本读取失败时，已自动退回浏览器原始视图。';
+        }
+        renderRawTextFrame(rawHref, fileName);
+        return;
+      }
+
+      previewBody.innerHTML = '<div class="preview-error">预览加载失败。这个文件仍然可以通过右上角“新标签打开”查看。</div>';
+      if (previewStatus) previewStatus.textContent = '当前文件无法在侧边栏内完成预览。';
+    }
+  }
+
+  document.querySelectorAll(PREVIEW_LINK_SELECTOR).forEach((link) => {
+    const rawHref = link.getAttribute('href');
+    const previewType = getPreviewType(rawHref);
+
+    if (!previewType || link.hasAttribute('download')) {
+      return;
+    }
+
+    link.dataset.preview = 'true';
+    link.dataset.previewType = previewType;
+    link.setAttribute('aria-expanded', 'false');
+
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const absoluteUrl = new URL(rawHref, window.location.href).href;
+
+      if (activePreviewUrl === absoluteUrl) {
+        closePreviewPanel();
+        return;
+      }
+
+      renderPreviewContent(link, previewType, absoluteUrl, rawHref);
+    });
+  });
+
+  if (previewCloseBtn) {
+    previewCloseBtn.addEventListener('click', closePreviewPanel);
+  }
+
+  if (previewBackdrop) {
+    previewBackdrop.addEventListener('click', closePreviewPanel);
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && body.classList.contains('preview-open')) {
+      closePreviewPanel();
+    }
+  });
+
+
   /* ── Theme switcher ── */
   const body = document.body;
   const themeCycleToggle = document.getElementById('themeCycleToggle');
   const THEME_KEY = 'one-research-claw-theme';
-  const THEME_ORDER = ['warm', 'light', 'dark'];
-
-  const CRAB_ICON = `
-    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
-      <path d="M7.2 13.8c0-3 2.15-5.2 4.8-5.2s4.8 2.2 4.8 5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-      <path d="M8.1 13.8h7.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-      <path d="M6.8 10.8 5 9M17.2 10.8 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-      <path d="M4.6 8.8c.8-.7 1.7-.7 2.4.1M19.4 8.8c-.8-.7-1.7-.7-2.4.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-      <path d="M8.6 14.3v2.3M10.8 14.5v2.8M13.2 14.5v2.8M15.4 14.3v2.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
-    </svg>`;
+  const THEME_ORDER = ['warm', 'dark'];
 
   const SUN_ICON = `
     <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
@@ -4128,21 +4609,23 @@
 
   const MOON_ICON = `
     <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
-      <path d="M14.7 4.9a7.9 7.9 0 1 0 4.4 14.4 8.5 8.5 0 1 1-4.4-14.4Z" fill="currentColor"></path>
+      <defs>
+        <mask id="theme-moon-mask">
+          <rect width="24" height="24" fill="white"></rect>
+          <circle cx="15.2" cy="10.2" r="6.6" fill="black"></circle>
+        </mask>
+      </defs>
+      <circle cx="11" cy="12" r="7.2" fill="currentColor" mask="url(#theme-moon-mask)"></circle>
     </svg>`;
 
   const THEME_META = {
     warm: {
       icon: SUN_ICON,
-      label: '切换到白色主题'
-    },
-    light: {
-      icon: MOON_ICON,
-      label: '切换到黑色主题'
+      label: '当前为原色主题'
     },
     dark: {
-      icon: CRAB_ICON,
-      label: '切换到默认主题'
+      icon: MOON_ICON,
+      label: '当前为黑色主题'
     }
   };
 
